@@ -1,0 +1,5 @@
+.background-content {
+  /* background-color: #121212; */
+  background-image: linear-gradient(to bottom, #675dda, #5a50cb, #4d43bc, #4036ad, #322a9e);
+  height: 100vh;
+}
