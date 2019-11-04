@@ -1,11 +1,14 @@
 import React, { Component } from "react";
-import {Background} from "../components/Basics";
+import { Background, Modal, Logo, SigninGoogle } from "../components/Basics";
 
 class Signin extends Component {
   render() {
     return (
-      <Background>
-        <div className="text-light">Hello World</div>
+      <Background page="signin">
+        <Modal>
+          <Logo />
+          <SigninGoogle />
+        </Modal>
       </Background>
     );
   }
