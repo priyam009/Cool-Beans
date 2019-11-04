@@ -1,5 +1,37 @@
 .background-content {
   /* background-color: #121212; */
-  background-image: linear-gradient(to bottom, #675dda, #5a50cb, #4d43bc, #4036ad, #322a9e);
+  background-image: linear-gradient(
+    to bottom,
+    #675dda,
+    #5a50cb,
+    #4d43bc,
+    #4036ad,
+    #322a9e
+  );
   height: 100vh;
 }
+
+.signin-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 40vw;
+  height: 25vh;
+  /* background-color: #121212; */
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo {
+  font-family: "Courgette", cursive;
+  font-size: 60px;
+  color: #fff;
+  text-shadow: -2px 0px 6px #121212;
+}
+
