@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "cool-beans",
   "version": "1.0.0",
-  "description": "Mern Demo",
+  "description": "Workplace Coffee counting app that gives certain share of your coffee to a Non-profit Organisation",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
