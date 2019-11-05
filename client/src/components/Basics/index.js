@@ -13,6 +13,10 @@ export function Logo() {
   return <div className="logo">Cool Beans</div>;
 }
 
-export function SigninGoogle() {
-  return <div class="g-signin2" data-onsuccess="onSignIn"></div>;
+export function SigninGoogle(props) {
+  return (
+    <button>
+      <a href={props.url}>Sign-in With Google</a>
+    </button>
+  );
 }
