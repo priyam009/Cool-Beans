@@ -15,8 +15,8 @@ export function Logo() {
 
 export function SigninGoogle(props) {
   return (
-    <button>
-      <a href={props.url}>Sign-in With Google</a>
-    </button>
+    <a href={props.url}>
+      <button>Sign-in with Google</button>
+    </a>
   );
 }
