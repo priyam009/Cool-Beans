@@ -1,6 +1,7 @@
 const { google } = require("googleapis");
-const axios = require("axios");
+// const axios = require("axios");
 const router = require("express").Router();
+global.atob = require("atob");
 
 const googleConfig = {
   clientId:
@@ -23,7 +24,8 @@ function getConnectionUrl(auth) {
   return auth.generateAuthUrl({
     access_type: "offline",
     prompt: "consent", // access type and approval prompt will force a new refresh token to be made each time signs in
-    scope: "https://www.googleapis.com/auth/userinfo.profile"
+    // scope: "https://www.googleapis.com/auth/userinfo.profile"
+    scope: "openid email profile"
   });
 }
 
@@ -40,7 +42,7 @@ async function getGoogleAccountFromCode(code) {
   const auth = createConnection();
   const data = await auth.getToken(code);
   const tokens = data.tokens;
-
+  
   // add the tokens to the google api so we have access to the account
   auth.setCredentials(tokens);
 
