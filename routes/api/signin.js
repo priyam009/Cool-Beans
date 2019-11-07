@@ -52,18 +52,45 @@ async function getGoogleAccountFromCode(code) {
   };
 }
 
+
+function parseJwt (token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+  }).join(''));
+
+  return JSON.parse(jsonPayload);
+};
+
 router.get("/signin", (req, res) => {
   let url = urlGoogle();
+  // console.log("url", url);
   res.json({ url: url});
 });
 
 router.post("/token", function(req, res) {
-  console.log(req.body.code);
+  // console.log(req.body.code);
   let info= getGoogleAccountFromCode(req.body.code);
   info.then(function(result) {
-    console.log(result);
+    // console.log("result", result);
+    const token = parseJwt(result.tokens.id_token);
+
+    const iss = token.iss === 'https://accounts.google.com' || "accounts.google.com";
+    const aud = token.aud === googleConfig.clientId;
+    const isEmailVerified = token.email_verified;
+
+    if(iss && aud && isEmailVerified) {
+      // console.log(token);
+      req.session.user = {
+        email: token.email,
+        name: token.name
+      }
+      console.log("session",req.session);
+      res.cookie("userData", req.session.user);
+        res.json({user:req.session.user});
+    }
   })
-//   res.render("dashboard");
 });
 
 module.exports = router;
