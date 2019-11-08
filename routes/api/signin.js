@@ -25,7 +25,6 @@ function getConnectionUrl(auth) {
   return auth.generateAuthUrl({
     access_type: "offline",
     prompt: "consent", // access type and approval prompt will force a new refresh token to be made each time signs in
-    // scope: "https://www.googleapis.com/auth/userinfo.profile"
     scope: "openid email profile"
   });
 }
