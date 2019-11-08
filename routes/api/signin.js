@@ -1,13 +1,14 @@
+require("dotenv").config();
 const { google } = require("googleapis");
-// const axios = require("axios");
 const router = require("express").Router();
 global.atob = require("atob");
+const db = require("../../models");
+const jwt = require("jsonwebtoken");
 
 const googleConfig = {
-  clientId:
-    "762555638175-tskgfephk79264jpfd2cvrturjbahrab.apps.googleusercontent.com",
-  clientSecret: "unvLHyRsev3_QKehC2VySyQY",
-  redirect: "http://localhost:3000/dashboard"
+  clientId: process.env.CLIENT_ID,
+  clientSecret: process.env.CLIENT_SECRET,
+  redirect: "http://localhost:3000/"
 };
 
 // Create the google auth object which gives us access to talk to google's apis
@@ -42,7 +43,7 @@ async function getGoogleAccountFromCode(code) {
   const auth = createConnection();
   const data = await auth.getToken(code);
   const tokens = data.tokens;
-  
+
   // add the tokens to the google api so we have access to the account
   auth.setCredentials(tokens);
 
