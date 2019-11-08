@@ -29,7 +29,23 @@ class Signin extends Component {
       .catch(err => console.log(err));
   }
 
+  getToken = code => {
+    API.getToken(code)
+      .then(res => {
+        console.log(res.data);
+        // this.setState({ user: res.data });
+        setTimeout(
+          () => this.props.history.push('/dashboard'),
+          2000
+        );
+        
+      })
+      .catch(err => console.log(err));
+  };
+
+
   render() {
+    // console.log("url", this.state.url)
     return (
       <Background page="signin">
         <Modal>
