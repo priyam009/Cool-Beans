@@ -52,45 +52,91 @@ async function getGoogleAccountFromCode(code) {
   };
 }
 
-
-function parseJwt (token) {
-  var base64Url = token.split('.')[1];
-  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-  var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
+function parseJwt(token) {
+  var base64Url = token.split(".")[1];
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split("")
+      .map(function(c) {
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join("")
+  );
 
   return JSON.parse(jsonPayload);
-};
+}
+
+function generateToken(id) {
+  const token = jwt.sign({ id: id }, process.env.CLIENT_SECRET, {
+    algorithm: "HS256",
+    expiresIn: 86400
+  });
+
+  return token;
+}
 
 router.get("/signin", (req, res) => {
   let url = urlGoogle();
-  // console.log("url", url);
-  res.json({ url: url});
+
+  //GET BASIC INFO
+  console.log("CLIENT_ID: ", googleConfig.clientId);
+  console.log("CLIENT_SECRET: ", googleConfig.clientSecret);
+  console.log("URL: ", url);
+  //---------------
+
+  res.json({ url: url });
 });
 
 router.post("/token", function(req, res) {
-  // console.log(req.body.code);
-  let info= getGoogleAccountFromCode(req.body.code);
-  info.then(function(result) {
-    // console.log("result", result);
-    const token = parseJwt(result.tokens.id_token);
+  getGoogleAccountFromCode(req.body.code).then(function(result) {
+    const access_token = result.tokens.access_token;
+    const id_token = result.tokens.id_token;
+    const payload = parseJwt(id_token);
 
-    const iss = token.iss === 'https://accounts.google.com' || "accounts.google.com";
-    const aud = token.aud === googleConfig.clientId;
-    const isEmailVerified = token.email_verified;
+    // GET INFORMATION CONSOLE LOG
+    console.log("Token: ", result);
+    console.log("Access Token: ", access_token);
+    console.log("Payload: ", payload);
+    // --------------------------
 
-    if(iss && aud && isEmailVerified) {
-      // console.log(token);
-      req.session.user = {
-        email: token.email,
-        name: token.name
-      }
-      console.log("session",req.session);
-      res.cookie("userData", req.session.user);
-        res.json({user:req.session.user});
-    }
-  })
+    //CHECK IF EXISTS IN DATABASE OR CREATE NEW USER
+    db.User.findOne({ email: payload.email })
+      .then(dbUser => {
+        if (dbUser) {
+          console.log("Existing User: ", dbUser);
+          // const token = { id: generateToken(dbUser._id) };
+          const token = generateToken(dbUser._id);
+
+          //GET FINAL ENCRYPTED TOKEN
+          console.log("Final Token", token);
+          // --------------------------
+
+          res.cookie("token", token, { maxAge: 86400 * 1000 });
+          res.send(dbUser);
+        } else {
+          db.User.create({
+            email: payload.email,
+            firstName: payload.given_name,
+            lastName: payload.family_name,
+            picture: payload.picture
+          })
+            .then(newUser => {
+              console.log("New User: ", newUser);
+              const token = generateToken(newUser._id);
+
+              //GET FINAL ENCRYPTED TOKEN
+              console.log("Final Token", token);
+              // --------------------------
+    
+              res.cookie("token", token, { maxAge: 86400 * 1000 });
+              res.send(dbUser);
+            })
+            .catch(err => res.status(422).json(err));
+        }
+      })
+      .catch(err => res.status(422).json(err));
+  });
 });
 
 module.exports = router;
