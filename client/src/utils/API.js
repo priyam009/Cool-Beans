@@ -6,6 +6,10 @@ export default {
   },
 
   getToken: function(code) {
-    return axios.post("/api/google/token", {code: code});
+    return axios.post("/api/google/token", { code: code });
+  },
+
+  getUser: function(id) {
+    return axios.get("/api/user/" + id);
   }
-}
+};
