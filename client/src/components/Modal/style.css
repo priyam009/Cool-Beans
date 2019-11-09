@@ -1,0 +1,10 @@
+/* Component- Modal */
+.modal-content {
+  width: 40vw;
+  height: 25vh;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
