@@ -9,25 +9,9 @@ class Dashboard extends Component {
     id: Cookies.get("token")
   };
 
-  // componentWillMount() {
-  //   const parsed = queryString.parse(this.props.location.search);
-  //   // console.log(parsed);
-  //   this.getToken(parsed.code);
-  // }
-
-  // getToken = code => {
-  //   API.getToken(code)
-  //     .then(res => {
-  //       console.log(res.data);
-  //       this.setState({ user: res.data });
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
   componentDidMount() {
     this.getUser(this.state.id);
   }
-
 
   getUser = id => {
     if (id) {
@@ -44,8 +28,8 @@ class Dashboard extends Component {
 
   handleClick = () => {
     Cookies.remove("token");
-    this.setState({id:""})
-    this.props.history.push("/");    
+    this.setState({ id: "" });
+    this.props.history.push("/");
   };
 
   render() {
@@ -58,7 +42,7 @@ class Dashboard extends Component {
         <div>Name: {this.state.user.firstName}</div>
         <div>Email: {this.state.user.email}</div>
         <div>
-          Picture: <img src={this.state.user.picture} />
+          Picture: <img src={this.state.user.picture} alt="me" />
         </div>
         <button onClick={this.handleClick}>Log Out</button>
       </div>

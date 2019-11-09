@@ -13,7 +13,6 @@ class Signin extends Component {
   componentDidMount() {
     this.getLink();
     const parsed = queryString.parse(this.props.location.search);
-    console.log("Parsed: ", parsed);
     if (parsed.code) {
       this.getToken(parsed.code);
     }
@@ -37,7 +36,6 @@ class Signin extends Component {
   };
 
   render() {
-    console.log("Loading: ", this.state.loading);
     return (
       <Background page="signin">
         <Modal>
