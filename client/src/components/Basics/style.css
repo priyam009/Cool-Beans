@@ -1,26 +1,27 @@
+/* Component- Background */
 .background-content {
   /* background-color: #121212; */
   background-image: linear-gradient(
     to bottom,
     #675dda,
-    #5a50cb,
-    #4d43bc,
-    #4036ad,
+    /* #5a50cb, */ /* #4d43bc, */ #4036ad,
     #322a9e
   );
   height: 100vh;
 }
 
 .signin-modal {
+  position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+/* Component- Modal */
 .modal-content {
   width: 40vw;
   height: 25vh;
-  /* background-color: #121212; */
   background-color: rgba(0, 0, 0, 0);
   border: 0px;
   display: flex;
