@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { Background, Modal, Logo, SigninGoogle } from "../components/Basics";
+import { Background } from "../components/Background";
+import { Modal } from "../components/Modal";
+import {Logo} from "../components/Logo";
+import {SigninGoogle} from "../components/Button";
+import { Spinner } from "../components/Spinner";
 import API from "../utils/API";
 import queryString from "query-string";
-import { Spinner } from "../components/Addons";
 
 class Signin extends Component {
   state = {
