@@ -55,7 +55,7 @@
 }
 .google-button:focus,
 .google-button:hover {
-  box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.1);
+  background-color: #E0E0E0;
 }
 .google-button:active {
   background-color: #e5e5e5;
