@@ -1,10 +1,12 @@
 /* Component- Background */
 .background-content {
-  /* background-color: #121212; */
   background-image: linear-gradient(
     to bottom,
+    #5d6fd9,
     #675dda,
-    /* #5a50cb, */ /* #4d43bc, */ #4036ad,
+    #5a50cb, 
+    #4d43bc, 
+    #4036ad,
     #322a9e
   );
   height: 100vh;
