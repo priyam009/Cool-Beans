@@ -20,7 +20,7 @@ class Signin extends Component {
     //Parse the code from Google using queryString package from page location
     const parsed = queryString.parse(this.props.location.search);
 
-    //Get Token from the parsed code from Google if parsed code exists 
+    //Get Token from the parsed code from Google if parsed code exists
     if (parsed.code) {
       this.getToken(parsed.code);
     }
