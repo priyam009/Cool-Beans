@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-// import queryString from "query-string";
 import API from "../utils/API";
 import Cookies from "js-cookie";
+import { Background } from "../components/Background";
 
 class Dashboard extends Component {
   state = {
@@ -37,14 +37,17 @@ class Dashboard extends Component {
     console.log("Props: ", this.props);
     console.log("Window: ", window);
     return (
-      <div>
-        <div>Welcome to Dashboard</div>
-        <div>Name: {this.state.user.firstName}</div>
-        <div>Email: {this.state.user.email}</div>
-        <div>
-          Picture: <img src={this.state.user.picture} alt="me" />
+      <div className="d-flex justify-content-between">
+        <Background page="dashboard" />
+        <div className="d-flex flex-column">
+          <div>Welcome to Dashboard</div>
+          <div>Name: {this.state.user.firstName}</div>
+          <div>Email: {this.state.user.email}</div>
+          <div>
+            Picture: <img src={this.state.user.picture} alt="me" />
+          </div>
+          <button onClick={this.handleClick}>Log Out</button>
         </div>
-        <button onClick={this.handleClick}>Log Out</button>
       </div>
     );
   }
