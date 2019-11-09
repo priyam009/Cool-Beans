@@ -1,0 +1,27 @@
+/* Component- Background */
+.background-content {
+  background-image: linear-gradient(
+    to bottom,
+    #5d6fd9,
+    #675dda,
+    #5a50cb, 
+    #4d43bc, 
+    #4036ad,
+    #322a9e
+  );
+  height: 100vh;
+}
+
+.signin-modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-modal {
+width: 250px;
+border-radius: 0 20px 20px 0;
+}
+
