@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Cookies from "js-cookie";
 import { Background } from "../components/Background";
+import { Logo } from "../components/Logo";
+import { NavButton, Logout } from "../components/Button";
 
 class Dashboard extends Component {
   state = {
