@@ -49,7 +49,7 @@ class Signin extends Component {
     return (
       <Background page="signin">
         <Modal>
-          <Logo />
+          <Logo page="signin"/>
           <SigninGoogle url={this.state.url} />
         </Modal>
         <Spinner loading={this.state.loading} />
