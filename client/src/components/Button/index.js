@@ -33,3 +33,13 @@ export function SigninGoogle(props) {
     </a>
   );
 }
+
+export function NavButton(props) {
+  return(<div className="nav-button">{props.name}</div>)
+}
+
+export function Logout(props) {
+  return(
+    <div className="nav-button" onClick={props.handleLogOut}>{props.name}</div>
+  )
+}
