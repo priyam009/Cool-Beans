@@ -39,9 +39,15 @@ class Dashboard extends Component {
     console.log("Props: ", this.props);
     console.log("Window: ", window);
     return (
-      <div className="d-flex justify-content-between">
-        <Background page="dashboard" />
-        <div className="d-flex flex-column">
+      <Background page="dashboard">
+        <Logo page="homepage" />
+        <div>
+          <NavButton name="Dashboard" />
+          <NavButton name="Add New" />
+          <NavButton name="History" />
+        </div>
+        <Logout name="Log Out" handleLogOut={this.handleLogOut}/>
+        {/* <div className="d-flex flex-column">
           <div>Welcome to Dashboard</div>
           <div>Name: {this.state.user.firstName}</div>
           <div>Email: {this.state.user.email}</div>
@@ -49,8 +55,8 @@ class Dashboard extends Component {
             Picture: <img src={this.state.user.picture} alt="me" />
           </div>
           <button onClick={this.handleClick}>Log Out</button>
-        </div>
-      </div>
+        </div> */}
+      </Background>
     );
   }
 }
