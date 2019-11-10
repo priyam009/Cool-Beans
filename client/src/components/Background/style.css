@@ -1,4 +1,4 @@
-/* Component- Background */
+/* Common Class */
 .background-content {
   background-image: linear-gradient(
     to bottom,
@@ -12,6 +12,7 @@
   height: 100vh;
 }
 
+/* Sign-in page */
 .signin-modal {
   position: relative;
   display: flex;
