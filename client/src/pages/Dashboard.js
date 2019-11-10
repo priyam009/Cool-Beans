@@ -28,7 +28,7 @@ class Dashboard extends Component {
     }
   };
 
-  handleClick = () => {
+  handleLogOut = () => {
     Cookies.remove("token");
     this.setState({ id: "" });
     this.props.history.push("/");
