@@ -22,8 +22,12 @@
   align-items: center;
 }
 
+/* Dashboard page */
 .dashboard-modal {
-width: 250px;
-border-radius: 0 20px 20px 0;
+  background-color: #049bab;
+  width: 250px;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
 }
-
