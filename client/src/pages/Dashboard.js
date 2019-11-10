@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Cookies from "js-cookie";
 import { Background } from "../components/Background";
+import { Logo } from "../components/Logo";
+import { NavButton, Logout } from "../components/Button";
 
 class Dashboard extends Component {
   state = {
@@ -26,7 +28,7 @@ class Dashboard extends Component {
     }
   };
 
-  handleClick = () => {
+  handleLogOut = () => {
     Cookies.remove("token");
     this.setState({ id: "" });
     this.props.history.push("/");
@@ -37,9 +39,15 @@ class Dashboard extends Component {
     console.log("Props: ", this.props);
     console.log("Window: ", window);
     return (
-      <div className="d-flex justify-content-between">
-        <Background page="dashboard" />
-        <div className="d-flex flex-column">
+      <Background page="dashboard">
+        <Logo page="homepage" />
+        <div>
+          <NavButton name="Dashboard" />
+          <NavButton name="Add New" />
+          <NavButton name="History" />
+        </div>
+        <Logout name="Log Out" handleLogOut={this.handleLogOut}/>
+        {/* <div className="d-flex flex-column">
           <div>Welcome to Dashboard</div>
           <div>Name: {this.state.user.firstName}</div>
           <div>Email: {this.state.user.email}</div>
@@ -47,8 +55,8 @@ class Dashboard extends Component {
             Picture: <img src={this.state.user.picture} alt="me" />
           </div>
           <button onClick={this.handleClick}>Log Out</button>
-        </div>
-      </div>
+        </div> */}
+      </Background>
     );
   }
 }
