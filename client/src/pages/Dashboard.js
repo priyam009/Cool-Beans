@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Cookies from "js-cookie";
-import { Link } from "react-router-dom";
-import "../index.css";
-import { Background, Navbar } from "../components/Basics";
-import { Logo } from "../components/Logo";
-import { NavButton, Logout } from "../components/Button";
+import { Background } from "../components/Basics";
+import Navigation from "../components/Navigation";
+import { Title } from "../components/Title";
 
 class Dashboard extends Component {
   state = {
