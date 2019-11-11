@@ -52,7 +52,7 @@ class Dashboard extends Component {
             <Link to="/addnew">
               <NavButton name="Add New" />
             </Link>
-            <Link to="history">
+            <Link to="/history">
               <NavButton name="History" />
             </Link>
           </div>
