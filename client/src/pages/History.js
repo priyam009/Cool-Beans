@@ -43,21 +43,8 @@ class History extends Component {
 
     return (
       <Background page="dashboard">
-        <Navbar>
-          <Logo page="homepage" />
-          <div className="nav-content">
-            <Link to="/dashboard">
-              <NavButton name="Dashboard" />
-            </Link>
-            <Link to="/addnew">
-              <NavButton name="Add New" />
-            </Link>
-            <Link to="/history">
-              <NavButton name="History" />
-            </Link>
-          </div>
-          <Logout name="Log Out" handleLogOut={this.handleLogOut} />
-        </Navbar>
+        <Navigation props={this.props} />
+        <Title title="History"/>
       </Background>
     );
   }
