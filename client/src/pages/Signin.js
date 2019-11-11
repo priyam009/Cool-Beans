@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Background } from "../components/Background";
+import { Background } from "../components/Basics";
 import { Modal } from "../components/Modal";
 import {Logo} from "../components/Logo";
 import {SigninGoogle} from "../components/Button";
