@@ -3,7 +3,7 @@ import "./style.css";
 
 export function Background({ children, page }) {
   var classname
-  page === "signin" ? classname = "before-signin" : classname = "after-signin";
+  page === "signin" ? classname = "before-signin gradient" : classname = "after-signin";
   
   return <div className={classname}>{children}</div>;
 }

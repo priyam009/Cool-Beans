@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Background } from "../components/Background";
+import { Background } from "../components/Basics";
 import { Modal } from "../components/Modal";
 import {Logo} from "../components/Logo";
 import {SigninGoogle} from "../components/Button";
 import { Spinner } from "../components/Spinner";
 import API from "../utils/API";
 import queryString from "query-string";
+import Cookies from "js-cookie";
 
 class Signin extends Component {
   state = {
@@ -14,6 +15,9 @@ class Signin extends Component {
   };
 
   componentDidMount() {
+    if(Cookies.get("token")) {
+      Cookies.remove("token");
+    }
     //Get Google Sign-in Link to attach to Sign-in Button
     this.getLink();
 

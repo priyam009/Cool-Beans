@@ -5,7 +5,7 @@ import { Background } from "../components/Basics";
 import Navigation from "../components/Navigation";
 import { Title } from "../components/Title";
 
-class Dashboard extends Component {
+class Add extends Component {
   state = {
     user: {},
     id: Cookies.get("token")
@@ -36,20 +36,10 @@ class Dashboard extends Component {
     return (
       <Background page="dashboard">
         <Navigation props={this.props}/>
-        <Title title="Dashboard"/>
+        <Title title="Add New Employee Or NGO"/>
       </Background>
     );
   }
 }
 
-export default Dashboard;
-
-/* <div className="d-flex flex-column">
-      <div>Welcome to Dashboard</div>
-      <div>Name: {this.state.user.firstName}</div>
-      <div>Email: {this.state.user.email}</div>
-      <div>
-        Picture: <img src={this.state.user.picture} alt="me" />
-      </div>
-      <button onClick={this.handleClick}>Log Out</button>
-    </div> */
+export default Add;
