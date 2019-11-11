@@ -28,12 +28,6 @@ class Add extends Component {
     }
   };
 
-  handleLogOut = () => {
-    Cookies.remove("token");
-    this.setState({ id: "" });
-    this.props.history.push("/");
-  };
-
   render() {
     console.log("Cookie id: ", Cookies.get("token"));
     console.log("Props: ", this.props);
