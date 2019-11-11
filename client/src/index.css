@@ -4,10 +4,3 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   height: 100vh;
 }
-
-.nav-content {
-  display: flex;
-  flex-direction: column;
-  align-content: end;
-  height: 50vh;
-}
