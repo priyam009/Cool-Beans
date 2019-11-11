@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Signin from "./pages/Signin";
 import Dashboard from "./pages/Dashboard";
+import Add from "./pages/Add";
+import History from "./pages/History";
 import NoMatch from "./pages/NoMatch";
 
 function App() {
