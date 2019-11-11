@@ -7,7 +7,7 @@ import { Background, Navbar } from "../components/Basics";
 import { Logo } from "../components/Logo";
 import { NavButton, Logout } from "../components/Button";
 
-class Dashboard extends Component {
+class History extends Component {
   state = {
     user: {},
     id: Cookies.get("token")
