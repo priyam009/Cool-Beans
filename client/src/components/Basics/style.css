@@ -8,6 +8,8 @@
 
 .after-signin {
   background-color: #EEF0FB;
+  display: flex;
+  flex-direction: row;
 }
 
 .gradient {
