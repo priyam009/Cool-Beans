@@ -1,0 +1,33 @@
+.before-signin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.after-signin {
+  background-color: #EEF0FB;
+}
+
+.gradient {
+  background-image: linear-gradient(
+    to bottom,
+    #5d6fd9,
+    #675dda,
+    #5a50cb,
+    #4d43bc,
+    #4036ad,
+    #322a9e
+  );
+  height: 100vh;
+}
+
+.navbar {
+  width: 225px;
+  border-radius: 0 50px 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
