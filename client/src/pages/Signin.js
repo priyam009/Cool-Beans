@@ -6,6 +6,7 @@ import {SigninGoogle} from "../components/Button";
 import { Spinner } from "../components/Spinner";
 import API from "../utils/API";
 import queryString from "query-string";
+import Cookies from "js-cookie";
 
 class Signin extends Component {
   state = {
@@ -14,6 +15,9 @@ class Signin extends Component {
   };
 
   componentDidMount() {
+    if(Cookies.get("token")) {
+      Cookies.remove("token");
+    }
     //Get Google Sign-in Link to attach to Sign-in Button
     this.getLink();
 
