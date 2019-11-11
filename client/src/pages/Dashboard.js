@@ -40,27 +40,37 @@ class Dashboard extends Component {
     console.log("Cookie id: ", Cookies.get("token"));
     console.log("Props: ", this.props);
     console.log("Window: ", window);
+
     return (
       <Background page="dashboard">
-        <Logo page="homepage" />
-        <div>
-          <NavButton name="Dashboard" />
-          <NavButton name="Add New" />
-          <NavButton name="History" />
-        </div>
-        <Logout name="Log Out" handleLogOut={this.handleLogOut}/>
-        {/* <div className="d-flex flex-column">
-          <div>Welcome to Dashboard</div>
-          <div>Name: {this.state.user.firstName}</div>
-          <div>Email: {this.state.user.email}</div>
-          <div>
-            Picture: <img src={this.state.user.picture} alt="me" />
+        <Navbar>
+          <Logo page="homepage" />
+          <div className="nav-content">
+            <Link to="/dashboard">
+              <NavButton name="Dashboard" />
+            </Link>
+            <Link to="/addnew">
+              <NavButton name="Add New" />
+            </Link>
+            <Link to="history">
+              <NavButton name="History" />
+            </Link>
           </div>
-          <button onClick={this.handleClick}>Log Out</button>
-        </div> */}
+          <Logout name="Log Out" handleLogOut={this.handleLogOut} />
+        </Navbar>
       </Background>
     );
   }
 }
 
 export default Dashboard;
+
+/* <div className="d-flex flex-column">
+      <div>Welcome to Dashboard</div>
+      <div>Name: {this.state.user.firstName}</div>
+      <div>Email: {this.state.user.email}</div>
+      <div>
+        Picture: <img src={this.state.user.picture} alt="me" />
+      </div>
+      <button onClick={this.handleClick}>Log Out</button>
+    </div> */
