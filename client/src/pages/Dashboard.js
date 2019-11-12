@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Cookies from "js-cookie";
+import "../index.css";
 import { Background } from "../components/Basics";
 import Navigation from "../components/Navigation";
+import { Box } from "../components/Box";
 import { Title } from "../components/Title";
 
 class Dashboard extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Background } from "../components/Basics";
-import { Modal } from "../components/Modal";
+import { Box } from "../components/Box";
 import {Logo} from "../components/Logo";
 import {SigninGoogle} from "../components/Button";
 import { Spinner } from "../components/Spinner";
@@ -52,10 +52,10 @@ class Signin extends Component {
   render() {
     return (
       <Background page="signin">
-        <Modal>
+        <Box location="signin">
           <Logo page="signin"/>
           <SigninGoogle url={this.state.url} />
-        </Modal>
+        </Box>
         <Spinner loading={this.state.loading} />
       </Background>
     );
