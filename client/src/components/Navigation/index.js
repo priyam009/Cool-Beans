@@ -8,7 +8,7 @@ import { NavButton, Logout } from "../Button";
 
 class Navigation extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       id: Cookies.get("token")
     };
