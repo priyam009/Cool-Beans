@@ -6,11 +6,11 @@ export function Box({ children, location }) {
   if(location==="signin") {
     box = "modal-content";
   } else if(location === "profile") {
-    box = "profile-box"
+    box = "profile-box box-common"
   } else if(location === "ngo") {
-    box = "ngo-box"
+    box = "ngo-box box-common"
   } else if(location === "employee") {
-    box = "employee-box"
+    box = "employee-box box-common"
   }
   return <div className={box}>{children}</div>;
 }
