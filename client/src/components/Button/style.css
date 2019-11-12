@@ -46,9 +46,6 @@
 
 /* NavButton function */
 .nav-button {
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
   cursor: pointer;
   color: #fff;
   font-size: 23px;

@@ -8,7 +8,7 @@ import { NavButton, Logout } from "../Button";
 
 class Navigation extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       id: Cookies.get("token")
     };
@@ -19,21 +19,23 @@ class Navigation extends React.Component {
     this.setState({ id: "" });
     this.props.props.history.push("/");
   };
-  
+
   render() {
     return (
       <Navbar>
-        <Logo page="homepage" />
-        <div className="nav-content">
-          <Link to="/dashboard">
-            <NavButton name="Dashboard" />
-          </Link>
-          <Link to="/addnew">
-            <NavButton name="Add New" />
-          </Link>
-          <Link to="/history">
-            <NavButton name="History" />
-          </Link>
+        <div className="nav-content d-flex flex-column justify-content-between">
+          <Logo page="homepage" />
+          <div className="link-content">
+            <Link to="/dashboard">
+              <NavButton name="Dashboard" />
+            </Link>
+            <Link to="/addnew">
+              <NavButton name="Add New" />
+            </Link>
+            <Link to="/history">
+              <NavButton name="History" />
+            </Link>
+          </div>
         </div>
         <Logout name="Log Out" handleLogOut={this.handleLogOut} />
       </Navbar>
