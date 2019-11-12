@@ -1,6 +1,10 @@
 .nav-content {
+ height: 40vh;
+}
+
+.link-content {
   display: flex;
   flex-direction: column;
-  align-content: end;
-  height: 50vh;
+  height: 25vh;
+  justify-content: space-around;
 }
