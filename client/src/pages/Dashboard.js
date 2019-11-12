@@ -37,8 +37,17 @@ class Dashboard extends Component {
 
     return (
       <Background page="dashboard">
-        <Navigation props={this.props}/>
-        <Title title="Dashboard"/>
+        <Navigation props={this.props} />
+        <div className="d-flex flex-column w-100 dashboard-content">
+          <Title title="Dashboard" />
+          <div className="d-flex flex-row justify-content-between">
+            <div className="d-flex flex-column justify-content-between">
+              <Box location="profile" />
+              <Box location="ngo" />
+            </div>
+            <Box location="employee" />
+          </div>
+        </div>
       </Background>
     );
   }
