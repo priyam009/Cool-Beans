@@ -4,11 +4,25 @@ import Cookies from "js-cookie";
 import { Background } from "../components/Basics";
 import Navigation from "../components/Navigation";
 import { Title } from "../components/Title";
+import { Box } from "../components/Box";
+import { Form, EmployeeForm, NGOForm } from "../components/Form";
+import "../index.css";
 
 class Add extends Component {
   state = {
     user: {},
-    id: Cookies.get("token")
+    id: Cookies.get("token"),
+    active: "employee",
+    employeeName: "",
+    employeeTitle: "",
+    employeeSupport: [],
+    ngoName: "",
+    ngoPurpose: "",
+    dbNGO: [
+      { name: "NGO1", isChecked: true },
+      { name: "NGO2", isChecked: false },
+      { name: "NGO3", isChecked: false }
+    ]
   };
 
   componentDidMount() {
