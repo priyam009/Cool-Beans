@@ -10,12 +10,12 @@
 }
 
 .profile-box {
-  width: 20vw;
+  width: 30vw;
   height: 25vh;
 }
 
 .ngo-box {
-  width: 20vw;
+  width: 30vw;
   height: 45vh;
   background-color: rgb(0, 0, 0);
   margin: 5px;
@@ -36,4 +36,14 @@
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+
+.add-box {
+  width: 50vw;
+  height: 50vh;
+  background-color: rgb(255, 255, 255);
+  margin: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
