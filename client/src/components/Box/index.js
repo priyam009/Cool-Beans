@@ -11,6 +11,8 @@ export function Box({ children, location }) {
     box = "ngo-box box-common"
   } else if(location === "employee") {
     box = "employee-box box-common"
+  } else if(location === "add") {
+    box = "add-box box-common"
   }
   return <div className={box}>{children}</div>;
 }
