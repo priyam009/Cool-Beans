@@ -11,5 +11,9 @@ export default {
 
   getUser: function(id) {
     return axios.get("/api/user/" + id);
+  },
+
+  createNGO: function(ngo) {
+    return axios.post("/api/ngo/new", { ngo: ngo });
   }
 };

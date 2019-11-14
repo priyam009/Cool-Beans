@@ -42,33 +42,52 @@ class Add extends Component {
     }
   };
 
+  //Create new NGO
+  createNGO = dbNGO => {
+    API.createNGO(dbNGO)
+      .then(res => {
+        console.log("dbNGO", res);
+      })
+      .catch(err => console.log(err));
+  };
+
+  //Check Add NGO or Add Employee form is selected
   handleActiveState = active => {
     this.setState({
       active: active !== "ngo" ? "employee" : "ngo"
     });
   };
 
+  //Check for change in inout field
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
+  //When new NGO is added
   handleNGOSubmit = (event, ngo) => {
     event.preventDefault();
-    console.log("ngo", ngo);
+    // console.log("ngo", ngo);
+    const dbNGO = {
+      name: ngo.name,
+      purpose: ngo.purpose
+    };
+    this.createNGO(dbNGO);
   };
 
+  //When new Employee is added
   handleEmployeeSubmit = (event, employee) => {
     event.preventDefault();
-    console.log("employee", employee);
+    // console.log("employee", employee);
   };
 
+  //Check if checkbox is ticked under Add Employee
   handleCheckboxChange = event => {
     event.preventDefault();
-    const target = event.target;
+    // const target = event.target;
 
-    console.log("event.target", target.value);
-    console.log("event.checked", target.checked);
+    // console.log("event.target", target.value);
+    // console.log("event.checked", target.checked);
   };
 
   render() {
