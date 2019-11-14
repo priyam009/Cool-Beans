@@ -9,5 +9,15 @@ module.exports = {
       .findById(payload.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+
+  createNGO: function(req, res) {
+    console.log("createNGO", req.body.ngo);
+    const dbNGO = req.body.ngo
+    db.Ngo
+    .create(dbNGO)
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+    
   }
 }
