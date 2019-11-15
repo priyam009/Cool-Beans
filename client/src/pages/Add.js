@@ -206,7 +206,7 @@ class Add extends Component {
                     supports={this.state.dbNGO}
                     handleInputChange={this.handleInputChange}
                     handleEmployeeSubmit={this.handleEmployeeSubmit}
-                    handleCheckboxChange={this.handleCheckboxChange}
+                    handleNGOSelect={this.handleNGOSelect}
                   />
                 )}
               </Form>
