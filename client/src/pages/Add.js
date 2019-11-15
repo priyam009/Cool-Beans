@@ -150,7 +150,7 @@ class Add extends Component {
       employeeTitle: "",
       employeeNGO: []
     });
-
+    this.getAllNGO()
     //Create new Employee
     this.createEmployee(dbEmployee);
   };
