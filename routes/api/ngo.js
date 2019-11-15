@@ -3,5 +3,7 @@ const userController = require("../../controllers/userController");
 
 router.route("/new").post(userController.createNGO);
 
+router.route("/").get(userController.getAllNGO);
+
 module.exports = router;
 
