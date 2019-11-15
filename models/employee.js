@@ -14,13 +14,10 @@ const employeeSchema = new Schema({
     type: Number,
     default: 0
   },
-  ngo: {
-    type: Array
-  },
-  date: {
-    type: Date,
-    default: Date.now
-  }
+  ngo: [{
+    type: Schema.Types.ObjectId,
+    ref: "Ngo"
+  }]
 });
 
 const Employee = mongoose.model("Employee", employeeSchema);
