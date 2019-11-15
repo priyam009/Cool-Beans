@@ -38,15 +38,15 @@ export function NGOForm(props) {
 }
 
 export function EmployeeForm(props) {
-  console.log("Employee", props);
+  // console.log("Employee", props);
   return (
     <>
       <div>
         <label>Enter First Name:</label>
         <input
           value={props.firstName}
-          onChange={props.handleInputChange}
-          name="firstName"
+          name="employeeName"
+          onChange={event => props.handleInputChange(event)}
           placeholder="(Required)"
         />
       </div>
@@ -54,8 +54,8 @@ export function EmployeeForm(props) {
         <label>Enter Job Title:</label>
         <input
           value={props.title}
-          onChange={props.handleInputChange}
-          name="title"
+          onChange={event => props.handleInputChange(event)}
+          name="employeeTitle"
           placeholder="(Required)"
         />
       </div>
