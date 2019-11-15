@@ -14,6 +14,9 @@ const employeeSchema = new Schema({
     type: Number,
     default: 0
   },
+  ngo: {
+    type: Array
+  },
   date: {
     type: Date,
     default: Date.now
