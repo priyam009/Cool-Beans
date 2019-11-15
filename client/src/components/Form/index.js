@@ -38,15 +38,15 @@ export function NGOForm(props) {
 }
 
 export function EmployeeForm(props) {
-  console.log("Employee", props);
+  // console.log("Employee", props);
   return (
     <>
       <div>
         <label>Enter First Name:</label>
         <input
           value={props.firstName}
-          onChange={props.handleInputChange}
-          name="firstName"
+          name="employeeName"
+          onChange={event => props.handleInputChange(event)}
           placeholder="(Required)"
         />
       </div>
@@ -54,8 +54,8 @@ export function EmployeeForm(props) {
         <label>Enter Job Title:</label>
         <input
           value={props.title}
-          onChange={props.handleInputChange}
-          name="title"
+          onChange={event => props.handleInputChange(event)}
+          name="employeeTitle"
           placeholder="(Required)"
         />
       </div>
@@ -63,18 +63,18 @@ export function EmployeeForm(props) {
         <label>NGO to support: </label>
         <div>
           {props.supports.map((support, index) => (
-            <Checkbox 
-            key={index}
-            name={support.name}
-            isChecked={support.isChecked}
-            handleCheckboxChange={props.handleCheckboxChange}
+            <Select
+              key={index}
+              name={support.name}
+              isChecked={support.isChecked}
+              handleNGOSelect={props.handleNGOSelect}
             />
           ))}
         </div>
       </div>
       <button
-        className="card-link btn btn-dark"
-        onClick={event => props.handleEmployeeSubmit(event, props)}
+        className="card-link btn btn-dark mt-2"
+        onClick={event => props.handleEmployeeSubmit(event)}
       >
         Add Employee
       </button>
@@ -82,21 +82,16 @@ export function EmployeeForm(props) {
   );
 }
 
-export function Checkbox(props) {
-  console.log("checkbox props", props);
+export function Select(props) {
+  // console.log(props)
+  const button = props.isChecked ? "card-link btn btn-dark" : "card-link btn btn-light"
   return (
-    <div className="form-check">
-      <input
-        className="form-check-input"
-        type="checkbox"
-        value={props.name}
-        onChange={props.handleCheckboxChange}
-        checked={props.isChecked}
-        id="defaultCheck1"
-      />
-      <label className="form-check-label" htmlFor="defaultCheck1">
-        {props.support}
-      </label>
-    </div>
+    <button
+      className= {button}
+      value={props.name}
+      onClick={event => props.handleNGOSelect(event, props)}
+    >
+      {props.name}
+    </button>
   );
 }

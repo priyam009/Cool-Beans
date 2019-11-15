@@ -15,14 +15,10 @@ class Add extends Component {
     active: "employee",
     employeeName: "",
     employeeTitle: "",
-    employeeSupport: [],
+    employeeNGO: [],
     ngoName: "",
     ngoPurpose: "",
-    dbNGO: [
-      { name: "NGO1", isChecked: true },
-      { name: "NGO2", isChecked: false },
-      { name: "NGO3", isChecked: false }
-    ]
+    dbNGO: []
   };
 
   componentDidMount() {
@@ -33,22 +29,14 @@ class Add extends Component {
     if (id) {
       API.getUser(id)
         .then(res => {
-          console.log(res.data);
+          // console.log(res.data);
           this.setState({ user: res.data });
+          this.getAllNGO();
         })
         .catch(err => console.log(err));
     } else {
       this.props.history.push("/");
     }
-  };
-
-  //Create new NGO
-  createNGO = dbNGO => {
-    API.createNGO(dbNGO)
-      .then(res => {
-        console.log("dbNGO", res);
-      })
-      .catch(err => console.log(err));
   };
 
   //Check Add NGO or Add Employee form is selected
@@ -58,7 +46,7 @@ class Add extends Component {
     });
   };
 
-  //Check for change in inout field
+  //Check for change in input field
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
@@ -67,40 +55,118 @@ class Add extends Component {
   //When new NGO is added
   handleNGOSubmit = (event, ngo) => {
     event.preventDefault();
-    // console.log("ngo", ngo);
+
+    //Reset state
+    this.setState({
+      ngoName: "",
+      ngoPurpose: ""
+    });
+
+    //Set dbNGO with name and purpose
     const dbNGO = {
       name: ngo.name,
       purpose: ngo.purpose
     };
+    //Create new NGO
     this.createNGO(dbNGO);
+  };
+
+  //Create new NGO
+  createNGO = dbNGO => {
+    API.createNGO(dbNGO)
+      .then(res => {
+        console.log("NGO Added");
+        this.getAllNGO();
+      })
+      .catch(err => console.log(err));
+  };
+
+  //Get all NGOs- to display on Add Employee form
+  getAllNGO = () => {
+    API.getAllNGO()
+      .then(res => {
+        // console.log(res.data)
+        var ngo = [];
+        for (var i = 0; i < res.data.length; i++) {
+          var value = {
+            id: res.data[i]._id,
+            name: res.data[i].name,
+            isChecked: false
+          };
+          ngo.push(value);
+        }
+        this.setState({
+          dbNGO: ngo
+        });
+      })
+      .catch(err => console.log(err));
+  };
+
+  //Check if checkbox is ticked under Add Employee
+  handleNGOSelect = event => {
+    event.preventDefault();
+    const target = event.target;
+
+    this.setState(state => {
+      const dbNGO = state.dbNGO.map(item => {
+        if (item.name === target.value) {
+          this.setList(item.id, !item.isChecked);
+          return (item.isChecked = !item.isChecked);
+        } else {
+          return item.isChecked;
+        }
+      });
+      return dbNGO;
+    });
+  };
+
+  setList = (id, isChecked) => {
+    if (isChecked) {
+      this.setState(state => {
+        const employeeNGO = state.employeeNGO.push(id);
+        return employeeNGO;
+      });
+    } else {
+      this.setState(state => {
+        for (var i = 0; i < state.employeeNGO.length; i++) {
+          if (state.employeeNGO[i] === id) {
+            state.employeeNGO.splice(i, 1);
+          }
+        }
+      });
+    }
   };
 
   //When new Employee is added
   handleEmployeeSubmit = (event, employee) => {
     event.preventDefault();
-    // console.log("employee", employee);
+    const dbEmployee = {
+      name: this.state.employeeName,
+      title: this.state.employeeTitle,
+      ngo: this.state.employeeNGO
+    };
+    this.setState({
+      employeeName: "",
+      employeeTitle: "",
+      employeeNGO: []
+    });
+
+    //Create new Employee
+    this.createEmployee(dbEmployee);
   };
 
-  //Check if checkbox is ticked under Add Employee
-  handleCheckboxChange = event => {
-    event.preventDefault();
-    // const target = event.target;
-
-    // console.log("event.target", target.value);
-    // console.log("event.checked", target.checked);
+  createEmployee = dbEmployee => {
+    API.createEmployee(dbEmployee)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
   };
 
   render() {
-    // console.log("Cookie id: ", Cookies.get("token"));
-    // console.log("Props: ", this.props);
-    // console.log("Window: ", window);
-    // console.log("Active State: ", this.state.active);
-
     return (
       <Background page="dashboard">
         <Navigation props={this.props} />
         <div className="add-content">
-          <Title title="Add New Employee Or NGO" />
+          <Title title="Add New" />
           <div className="add-content-wrapper">
             <div className="add-content-button">
               <div
@@ -140,7 +206,7 @@ class Add extends Component {
                     supports={this.state.dbNGO}
                     handleInputChange={this.handleInputChange}
                     handleEmployeeSubmit={this.handleEmployeeSubmit}
-                    handleCheckboxChange={this.handleCheckboxChange}
+                    handleNGOSelect={this.handleNGOSelect}
                   />
                 )}
               </Form>
