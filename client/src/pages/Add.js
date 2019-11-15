@@ -15,14 +15,10 @@ class Add extends Component {
     active: "employee",
     employeeName: "",
     employeeTitle: "",
-    employeeSupport: [],
+    employeeNGO: [],
     ngoName: "",
     ngoPurpose: "",
-    dbNGO: [
-      { name: "NGO1", isChecked: true },
-      { name: "NGO2", isChecked: false },
-      { name: "NGO3", isChecked: false }
-    ]
+    dbNGO: []
   };
 
   componentDidMount() {
