@@ -29,22 +29,14 @@ class Add extends Component {
     if (id) {
       API.getUser(id)
         .then(res => {
-          console.log(res.data);
+          // console.log(res.data);
           this.setState({ user: res.data });
+          this.getAllNGO();
         })
         .catch(err => console.log(err));
     } else {
       this.props.history.push("/");
     }
-  };
-
-  //Create new NGO
-  createNGO = dbNGO => {
-    API.createNGO(dbNGO)
-      .then(res => {
-        console.log("dbNGO", res);
-      })
-      .catch(err => console.log(err));
   };
 
   //Check Add NGO or Add Employee form is selected
