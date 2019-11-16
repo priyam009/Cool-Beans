@@ -240,5 +240,3 @@ class Add extends Component {
 }
 
 export default Add;
-
-// d-flex flex-column justify-content-around align-items-center
