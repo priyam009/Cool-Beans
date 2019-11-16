@@ -6,6 +6,7 @@ module.exports = {
     payload = jwt.verify(req.params.id, process.env.CLIENT_SECRET);
 
     db.User.findById(payload.id)
+      .populate("ngo employee")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
