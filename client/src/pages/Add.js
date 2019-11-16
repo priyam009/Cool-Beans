@@ -165,14 +165,18 @@ class Add extends Component {
       employeeTitle: "",
       employeeNGO: []
     });
-    this.getAllNGO()
+    this.getAllNGO();
     //Create new Employee
     this.createEmployee(dbEmployee);
   };
 
   createEmployee = dbEmployee => {
-    API.createEmployee(dbEmployee)
-      .then(res => console.log(res))
+    API.createEmployee(dbEmployee, this.state.id)
+      .then(res =>
+        this.setState({
+          update: "New Employee Added!!"
+        })
+      )
       .catch(err => console.log(err));
   };
 
