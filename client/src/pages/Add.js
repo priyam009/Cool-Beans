@@ -215,6 +215,7 @@ class Add extends Component {
                   <NGOForm
                     name={this.state.ngoName}
                     purpose={this.state.ngoPurpose}
+                    update={this.state.update}
                     handleInputChange={this.handleInputChange}
                     handleNGOSubmit={this.handleNGOSubmit}
                   />
@@ -223,6 +224,7 @@ class Add extends Component {
                     name={this.state.employeeName}
                     title={this.state.employeeTitle}
                     supports={this.state.dbNGO}
+                    update={this.state.update}
                     handleInputChange={this.handleInputChange}
                     handleEmployeeSubmit={this.handleEmployeeSubmit}
                     handleNGOSelect={this.handleNGOSelect}
