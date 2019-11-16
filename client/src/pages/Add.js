@@ -86,9 +86,11 @@ class Add extends Component {
 
   //Create new NGO
   createNGO = dbNGO => {
-    API.createNGO(dbNGO)
+    API.createNGO(dbNGO, this.state.id)
       .then(res => {
-        console.log("NGO Added");
+        this.setState({
+          update: "New NGO Added!!"
+        });
         this.getAllNGO();
       })
       .catch(err => console.log(err));
@@ -151,7 +153,7 @@ class Add extends Component {
   };
 
   //When new Employee is added
-  handleEmployeeSubmit = (event, employee) => {
+  handleEmployeeSubmit = event => {
     event.preventDefault();
     const dbEmployee = {
       name: this.state.employeeName,
