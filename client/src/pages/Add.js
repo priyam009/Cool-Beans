@@ -18,11 +18,24 @@ class Add extends Component {
     employeeNGO: [],
     ngoName: "",
     ngoPurpose: "",
-    dbNGO: []
+    dbNGO: [],
+    update: ""
   };
 
   componentDidMount() {
     this.getUser(this.state.id);
+  }
+
+  componentDidUpdate() {
+    if (this.state.update) {
+      setTimeout(
+        () =>
+          this.setState({
+            update: ""
+          }),
+        2000
+      );
+    }
   }
 
   getUser = id => {
