@@ -12,8 +12,23 @@ module.exports = {
 
   createNGO: function(req, res) {
     const dbNGO = req.body.ngo;
+
+    payload = jwt.verify(req.params.id, process.env.CLIENT_SECRET);
+
     db.Ngo.create(dbNGO)
-      .then(dbModel => res.json(dbModel))
+      // .then(dbModel => res.json(dbModel))
+      .then(
+        dbModel => {
+          return db.User.findOneAndUpdate(
+            { _id: payload.id },
+            { $push: { ngo: dbModel._id } }
+          );
+        },
+        { new: true }
+      )
+      .then(dbUser => {
+        res.json(dbUser);
+      })
       .catch(err => res.status(422).json(err));
   },
 
@@ -27,9 +42,23 @@ module.exports = {
 
   createEmployee: function(req, res) {
     const dbEmployee = req.body.employee;
-    // console.log("dbEmployee", dbEmployee)
+
+    payload = jwt.verify(req.params.id, process.env.CLIENT_SECRET);
+
     db.Employee.create(dbEmployee)
-    .then(dbModel => res.json(dbModel))
-    .catch(err => res.status(422).json(err));
+      // .then(dbModel => res.json(dbModel))
+      .then(
+        dbModel => {
+          return db.User.findOneAndUpdate(
+            { _id: payload.id },
+            { $push: { employee: dbModel._id } }
+          );
+        },
+        { new: true }
+      )
+      .then(dbUser => {
+        res.json(dbUser);
+      })
+      .catch(err => res.status(422).json(err));
   }
 };

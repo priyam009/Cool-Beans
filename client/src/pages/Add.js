@@ -18,11 +18,24 @@ class Add extends Component {
     employeeNGO: [],
     ngoName: "",
     ngoPurpose: "",
-    dbNGO: []
+    dbNGO: [],
+    update: ""
   };
 
   componentDidMount() {
     this.getUser(this.state.id);
+  }
+
+  componentDidUpdate() {
+    if (this.state.update) {
+      setTimeout(
+        () =>
+          this.setState({
+            update: ""
+          }),
+        2000
+      );
+    }
   }
 
   getUser = id => {
@@ -73,9 +86,11 @@ class Add extends Component {
 
   //Create new NGO
   createNGO = dbNGO => {
-    API.createNGO(dbNGO)
+    API.createNGO(dbNGO, this.state.id)
       .then(res => {
-        console.log("NGO Added");
+        this.setState({
+          update: "New NGO Added!!"
+        });
         this.getAllNGO();
       })
       .catch(err => console.log(err));
@@ -138,7 +153,7 @@ class Add extends Component {
   };
 
   //When new Employee is added
-  handleEmployeeSubmit = (event, employee) => {
+  handleEmployeeSubmit = event => {
     event.preventDefault();
     const dbEmployee = {
       name: this.state.employeeName,
@@ -150,14 +165,18 @@ class Add extends Component {
       employeeTitle: "",
       employeeNGO: []
     });
-    this.getAllNGO()
+    this.getAllNGO();
     //Create new Employee
     this.createEmployee(dbEmployee);
   };
 
   createEmployee = dbEmployee => {
-    API.createEmployee(dbEmployee)
-      .then(res => console.log(res))
+    API.createEmployee(dbEmployee, this.state.id)
+      .then(res =>
+        this.setState({
+          update: "New Employee Added!!"
+        })
+      )
       .catch(err => console.log(err));
   };
 
@@ -196,6 +215,7 @@ class Add extends Component {
                   <NGOForm
                     name={this.state.ngoName}
                     purpose={this.state.ngoPurpose}
+                    update={this.state.update}
                     handleInputChange={this.handleInputChange}
                     handleNGOSubmit={this.handleNGOSubmit}
                   />
@@ -204,6 +224,7 @@ class Add extends Component {
                     name={this.state.employeeName}
                     title={this.state.employeeTitle}
                     supports={this.state.dbNGO}
+                    update={this.state.update}
                     handleInputChange={this.handleInputChange}
                     handleEmployeeSubmit={this.handleEmployeeSubmit}
                     handleNGOSelect={this.handleNGOSelect}
@@ -219,5 +240,3 @@ class Add extends Component {
 }
 
 export default Add;
-
-// d-flex flex-column justify-content-around align-items-center
