@@ -13,15 +13,15 @@ export default {
     return axios.get("/api/user/" + id);
   },
 
-  createNGO: function(ngo) {
-    return axios.post("/api/ngo/new", { ngo: ngo });
+  createNGO: function(ngo, id) {
+    return axios.post("/api/ngo/new/" + id, { ngo: ngo })
   },
 
   getAllNGO: function() {
     return axios.get("/api/ngo");
   },
 
-  createEmployee: function(employee) {
-    return axios.post("/api/employee/new", {employee: employee})
+  createEmployee: function(employee, id) {
+    return axios.post("/api/employee/new/" + id, {employee: employee})
   }
 };
