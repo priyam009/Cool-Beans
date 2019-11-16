@@ -25,8 +25,15 @@ class Dashboard extends Component {
     if (id) {
       API.getUser(id)
         .then(res => {
-          console.log(res.data);
-          this.setState({ user: res.data });
+          // console.log(res.data);
+
+          this.setState({
+            userName: res.data.firstName,
+            userEmail: res.data.email,
+            userPicture: res.data.picture,
+            ngo: res.data.ngo,
+            employee: res.data.employee
+          });
         })
         .catch(err => console.log(err));
     } else {
