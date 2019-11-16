@@ -33,6 +33,7 @@ export function NGOForm(props) {
       >
         Add NGO
       </button>
+      <div>{props.update}</div>
     </>
   );
 }
@@ -78,6 +79,7 @@ export function EmployeeForm(props) {
       >
         Add Employee
       </button>
+      <div>{props.update}</div>
     </>
   );
 }
