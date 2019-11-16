@@ -56,17 +56,42 @@ class Dashboard extends Component {
             <div className="d-flex flex-column justify-content-between">
               <Box location="profile">
                 <div className="d-flex h-100 flex-column align-items-center justify-content-around">
-                  <img
-                    src={this.state.user.picture}
-                    alt={this.state.lastName}
-                  />
-                  <h4>@{this.state.user.firstName}</h4>
-                  <h6>Total Employees: xxx</h6>
+                  <img src={this.state.userPicture} alt={this.state.userName} />
+                  <h4>@{this.state.userName}</h4>
+                  <h6>{this.state.userEmail}</h6>
+                  <h6>Total Employees: {this.state.employee.length}</h6>
+                  <h6>Total NGOs: {this.state.ngo.length}</h6>
                 </div>
               </Box>
-              <Box location="ngo" />
+              <Box location="ngo">
+                <div className="d-flex flex-column align-items-center">
+                  <h2>NGO</h2>
+                  {this.state.ngo.map((item, i) => (
+                    <div
+                      className="d-flex flex-column align-items-center"
+                      key={i}
+                    >
+                      <h5>{item.name}</h5>
+                      <p>{item.purpose}</p>
+                    </div>
+                  ))}
+                </div>
+              </Box>
             </div>
-            <Box location="employee" />
+            <Box location="employee">
+              <div className="d-flex flex-column align-items-center">
+                <h2>Employee</h2>
+                {this.state.employee.map((item, i) => (
+                  <button
+                    className="w-100 d-flex flex-row justify-content-between align-items-center pr-5 pl-5 btn btn-dark mb-2"
+                    key={i}
+                  >
+                    <h5 className="m-2">{item.name}</h5>
+                    <p className="m-2">Total Count: {item.count}</p>
+                  </button>
+                ))}
+              </div>
+            </Box>
           </div>
         </div>
       </Background>
