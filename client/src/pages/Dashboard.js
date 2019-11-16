@@ -9,8 +9,12 @@ import { Title } from "../components/Title";
 
 class Dashboard extends Component {
   state = {
-    user: {},
-    id: Cookies.get("token")
+    id: Cookies.get("token"),
+    userName: "",
+    userEmail: "",
+    userPicture: "",
+    ngo: [],
+    employee: []
   };
 
   componentDidMount() {
