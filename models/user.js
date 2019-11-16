@@ -17,7 +17,15 @@ const userSchema = new Schema({
   picture: {
     type: String,
     required: true
-  }
+  },
+  employee: [{
+    type: Schema.Types.ObjectId,
+    ref: "Employee"
+  }],
+  ngo: [{
+    type: Schema.Types.ObjectId,
+    ref: "Ngo"
+  }]
 });
 
 const User = mongoose.model("User", userSchema);
