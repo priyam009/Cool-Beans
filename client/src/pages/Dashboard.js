@@ -6,6 +6,7 @@ import { Background } from "../components/Basics";
 import Navigation from "../components/Navigation";
 import { Box } from "../components/Box";
 import { Title } from "../components/Title";
+import { Order } from "../components/Modal";
 
 class Dashboard extends Component {
   state = {
