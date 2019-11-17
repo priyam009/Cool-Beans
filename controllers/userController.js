@@ -17,7 +17,6 @@ module.exports = {
     payload = jwt.verify(req.params.id, process.env.CLIENT_SECRET);
 
     db.Ngo.create(dbNGO)
-      // .then(dbModel => res.json(dbModel))
       .then(
         dbModel => {
           return db.User.findOneAndUpdate(
@@ -47,7 +46,6 @@ module.exports = {
     payload = jwt.verify(req.params.id, process.env.CLIENT_SECRET);
 
     db.Employee.create(dbEmployee)
-      // .then(dbModel => res.json(dbModel))
       .then(
         dbModel => {
           return db.User.findOneAndUpdate(
