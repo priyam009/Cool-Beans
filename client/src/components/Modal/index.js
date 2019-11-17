@@ -13,12 +13,22 @@ export function Order(props) {
       backdrop="static"
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          {props.modal.employee.name}
+        <Modal.Title id="contained-modal-title-vcenter" className="d-flex flex-row align-items-end">
+          <div>{props.modal.employee.name}</div>
+          <div>-</div>
+          <div>{props.modal.employee.title}</div>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className="w-100">
-        <div className="d-flex flex-row justify-content-around">
+      <Modal.Body className="w-100 mt-3">
+        <div className="d-flex flex-column align-items-center">
+          <Alert variant="dark" size="sm">NGOs Supporting:</Alert>
+          <div className="d-flex flex-row justify-content-between w-100">
+            {props.modal.ngo.map((each, index) => {
+              return <Alert key={index} variant="success" size="sm" className="m-2 text-center">{each.name}</Alert>
+            })}
+          </div>
+        </div>
+        <div className="d-flex flex-row justify-content-around mt-4">
           <div className="d-flex flex-column w-25 mr-2">
             <h5 className="d-flex justify-content-center">Coffee Menu</h5>
             <div className="d-flex flex-column">
@@ -73,22 +83,28 @@ export function Order(props) {
           </div>
         </div>
       </Modal.Body>
-      <Modal.Footer className="d-flex flex-row w-100 justify-content-around">
-        <Button size="lg" onClick={props.handleClose}>
-          Close
-        </Button>
-        <Button
-          size="lg"
-          onClick={() => props.handleSubmitOrder(props.modal.employee, props.modal.ngo)}
-        >
-          Order
-        </Button>
-        <Alert className="m-0" variant="dark" size="sm">
-          Total: ${props.total}
-        </Alert>
-        <Alert className="m-0" variant="dark" size="sm">
-          Ngo Contribution: ${props.ngoContri}
-        </Alert>
+      <Modal.Footer className="d-flex flex-column w-100">
+        <div className="d-flex flex-row w-100 justify-content-between m-0">
+          <Alert className="m-0" variant="dark" size="sm">
+            Total: ${props.total}
+          </Alert>
+          <Alert className="m-0" variant="dark" size="sm">
+            Ngo Contribution: ${props.ngoContri}
+          </Alert>
+        </div>
+        <div className="d-flex flex-row w-100 justify-content-between m-0 pt-4">
+          <Button size="lg" onClick={props.handleClose}>
+            Close
+          </Button>
+          <Button
+            size="lg"
+            onClick={() =>
+              props.handleSubmitOrder(props.modal.employee, props.modal.ngo)
+            }
+          >
+            Order
+          </Button>
+        </div>
       </Modal.Footer>
     </Modal>
   );
