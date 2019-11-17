@@ -23,5 +23,13 @@ export default {
 
   createEmployee: function(employee, id) {
     return axios.post("/api/employee/new/" + id, {employee: employee})
+  },
+
+  updateEmployee: function(employee, id) {
+    return axios.put("/api/employee/update/" + id, {employee: employee})
+  },
+
+  updateNGO: function(ngo, id) {
+    return axios.put("/api/ngo/update/" + id, {total: ngo})
   }
 };
