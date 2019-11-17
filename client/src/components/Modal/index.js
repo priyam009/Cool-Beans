@@ -83,22 +83,28 @@ export function Order(props) {
           </div>
         </div>
       </Modal.Body>
-      <Modal.Footer className="d-flex flex-row w-100 justify-content-around">
-        <Button size="lg" onClick={props.handleClose}>
-          Close
-        </Button>
-        <Button
-          size="lg"
-          onClick={() => props.handleSubmitOrder(props.modal.employee, props.modal.ngo)}
-        >
-          Order
-        </Button>
-        <Alert className="m-0" variant="dark" size="sm">
-          Total: ${props.total}
-        </Alert>
-        <Alert className="m-0" variant="dark" size="sm">
-          Ngo Contribution: ${props.ngoContri}
-        </Alert>
+      <Modal.Footer className="d-flex flex-column w-100">
+        <div className="d-flex flex-row w-100 justify-content-between m-0">
+          <Alert className="m-0" variant="dark" size="sm">
+            Total: ${props.total}
+          </Alert>
+          <Alert className="m-0" variant="dark" size="sm">
+            Ngo Contribution: ${props.ngoContri}
+          </Alert>
+        </div>
+        <div className="d-flex flex-row w-100 justify-content-between m-0 pt-4">
+          <Button size="lg" onClick={props.handleClose}>
+            Close
+          </Button>
+          <Button
+            size="lg"
+            onClick={() =>
+              props.handleSubmitOrder(props.modal.employee, props.modal.ngo)
+            }
+          >
+            Order
+          </Button>
+        </div>
       </Modal.Footer>
     </Modal>
   );
