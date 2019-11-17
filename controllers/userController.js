@@ -17,7 +17,6 @@ module.exports = {
     payload = jwt.verify(req.params.id, process.env.CLIENT_SECRET);
 
     db.Ngo.create(dbNGO)
-      // .then(dbModel => res.json(dbModel))
       .then(
         dbModel => {
           return db.User.findOneAndUpdate(
@@ -47,7 +46,6 @@ module.exports = {
     payload = jwt.verify(req.params.id, process.env.CLIENT_SECRET);
 
     db.Employee.create(dbEmployee)
-      // .then(dbModel => res.json(dbModel))
       .then(
         dbModel => {
           return db.User.findOneAndUpdate(
@@ -60,6 +58,18 @@ module.exports = {
       .then(dbUser => {
         res.json(dbUser);
       })
+      .catch(err => res.status(422).json(err));
+  },
+
+  updateEmployee: function(req, res) {
+    db.Employee.findOneAndUpdate({ _id: req.params.id }, req.body.employee)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
+  updateNGO: function(req, res) {
+    db.Ngo.findOneAndUpdate({ _id: req.params.id }, req.body)
+      .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
 };

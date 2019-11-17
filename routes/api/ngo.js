@@ -5,5 +5,7 @@ router.route("/new/:id").post(userController.createNGO);
 
 router.route("/").get(userController.getAllNGO);
 
+router.route("/update/:id").put(userController.updateNGO);
+
 module.exports = router;
 

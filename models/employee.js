@@ -10,7 +10,11 @@ const employeeSchema = new Schema({
     type: String,
     required: true
   },
-  count: {
+  total: {
+    type: Number,
+    default: 0
+  },
+  contribution: {
     type: Number,
     default: 0
   },
