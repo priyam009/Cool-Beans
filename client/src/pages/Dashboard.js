@@ -245,28 +245,36 @@ class Dashboard extends Component {
                   <button
                     className="w-100 d-flex flex-row justify-content-between align-items-center pr-5 pl-5 btn btn-dark mb-2"
                     key={i}
+                    id={item._id}
+                    onClick={this.handleShow}
                   >
-                    <h5 className="m-2">{item.name}</h5>
-                    <p className="m-2">Total Count: {item.count}</p>
+                    <h5 className="m-2" id={item._id}>
+                      {item.name}
+                    </h5>
+
+                    <p className="m-2" id={item._id}>
+                      Contributed: ${item.contribution}
+                    </p>
                   </button>
                 ))}
               </div>
             </Box>
           </div>
         </div>
+        <Order
+          show={this.state.show}
+          coffee={this.state.coffee}
+          total={this.state.total}
+          ngoContri={this.state.ngoContri}
+          modal={this.state.modal}
+          handleClose={this.handleClose}
+          handleOrderAdd={this.handleOrderAdd}
+          handleOrderRemove={this.handleOrderRemove}
+          handleSubmitOrder={this.handleSubmitOrder}
+        />
       </Background>
     );
   }
 }
 
 export default Dashboard;
-
-/* <div className="d-flex flex-column">
-      <div>Welcome to Dashboard</div>
-      <div>Name: {this.state.user.firstName}</div>
-      <div>Email: {this.state.user.email}</div>
-      <div>
-        Picture: <img src={this.state.user.picture} alt="me" />
-      </div>
-      <button onClick={this.handleClick}>Log Out</button>
-    </div> */
