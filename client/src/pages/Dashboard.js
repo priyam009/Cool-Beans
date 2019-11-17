@@ -15,19 +15,47 @@ class Dashboard extends Component {
     userEmail: "",
     userPicture: "",
     ngo: [],
-    employee: []
+    employee: [],
+    show: false,
+    modal: {
+      employee: {},
+      ngo: []
+    },
+    coffee: [
+      {
+        name: "Latte",
+        price: 4,
+        qty: 0
+      },
+      {
+        name: "Cappuccino",
+        price: 4,
+        qty: 0
+      },
+      {
+        name: "Mocha",
+        price: 4.5,
+        qty: 0
+      },
+      {
+        name: "Espresso",
+        price: 3,
+        qty: 0
+      }
+    ],
+    total: 0,
+    ngoContri: 0
   };
 
   componentDidMount() {
     this.getUser(this.state.id);
   }
 
+  //Get User info
   getUser = id => {
     if (id) {
       API.getUser(id)
         .then(res => {
-          // console.log(res.data);
-
           this.setState({
             userName: res.data.firstName,
             userEmail: res.data.email,
