@@ -50,3 +50,115 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.profile-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.profile-image {
+  border-radius: 50%;
+}
+
+.profile-extras {
+  font-size: 18px;
+}
+
+.ngo-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ngo-content h2 {
+  overflow: hidden;
+  position: fixed;
+}
+
+.ngo-content-div {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.ngo-content-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #473ecc;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  padding: 25px 10px;
+}
+
+.ngo-box-name {
+  margin: 0;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+}
+
+.ngo-box-purpose {
+  font-size: 12px;
+  color: #C2C2C2;
+  margin: 0;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+}
+
+.box-heading {
+  color: #fff;
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+  margin-top: 5px;
+}
+
+.employee-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.employee-content h2 {
+  overflow: hidden;
+  position: fixed;
+}
+
+.employee-content-div {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.employee-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #473ecc;
+  border: 0;
+  padding: 20px 10px;
+  color: #fff;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  width: 100%;
+}
+
+.employee-button:hover {
+  background-color: #5A54B6;
+}
+
+button:focus {outline:0;}
+
+.employee-button h5 {
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+  margin: 5px;
+}
+
+.employee-button p {
+  text-shadow: 0px 0px 6px rgba(0, 0, 0, 1);
+  margin: 5px;
+}
