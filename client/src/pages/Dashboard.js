@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 import "../index.css";
 import { Background } from "../components/Basics";
 import Navigation from "../components/Navigation";
-import { Box } from "../components/Box";
+import { Box, ProfileBox, NGOBox, EmployeeBox } from "../components/Box";
 import { Title } from "../components/Title";
 import { Order } from "../components/Modal";
 
