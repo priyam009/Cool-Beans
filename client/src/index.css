@@ -17,40 +17,6 @@ body {
   width: 100vw;
 }
 
-.add-content-button {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 0 15vw;
-  font-size: 20px;
-}
-
-.add-content-button div {
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  padding: 5px 75px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.active-gradient {
-  color: #fff;
-  background-image: linear-gradient(
-    to bottom,
-    #5d6fd9,
-    #675dda,
-    #5a50cb,
-    #4d43bc,
-    #4036ad,
-    #322a9e
-  );
-}
-
-.inactive-gradient {
-  background-color: #fff;
-}
-
 .add-content-wrapper {
   height: 90vh;
   display: flex;
