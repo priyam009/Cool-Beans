@@ -112,9 +112,15 @@ class Dashboard extends Component {
     const id = event.target.id;
     const employee = this.state.employee.filter(item => item._id === id)[0];
 
-    const ngo = employee.ngo.map(
+    var ngo = employee.ngo.map(
       emp => this.state.ngo.filter(org => org._id === emp)[0]
     );
+
+    ngo = ngo.filter(item => {
+      if (item) {
+        return item;
+      }
+    });
 
     this.setState({
       show: true,
