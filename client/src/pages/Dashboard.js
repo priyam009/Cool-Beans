@@ -238,7 +238,10 @@ class Dashboard extends Component {
                 />
               </Box>
               <Box location="ngo">
-                <NGOBox ngo={this.state.ngo} />
+                <NGOBox
+                  ngo={this.state.ngo}
+                  handleNGODelete={this.handleNGODelete}
+                />
               </Box>
             </div>
             <Box location="employee">
@@ -259,6 +262,7 @@ class Dashboard extends Component {
           handleOrderAdd={this.handleOrderAdd}
           handleOrderRemove={this.handleOrderRemove}
           handleSubmitOrder={this.handleSubmitOrder}
+          handleEmployeeDelete={this.handleEmployeeDelete}
         />
       </Background>
     );
