@@ -1,5 +1,6 @@
 const db = require("../models");
 const jwt = require("jsonwebtoken");
+var randomColor = require('random-color');
 
 module.exports = {
   findById: function(req, res) {
@@ -83,5 +84,14 @@ module.exports = {
     db.Ngo.remove({ _id: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+
+  getColors: function(req, res) {
+    var colors= [];
+    for(var i=0; i<req.params.num; i++) {
+      var color = randomColor();
+      colors.push(color.hexString());
+    }
+    res.json({color: colors})
   }
 };
