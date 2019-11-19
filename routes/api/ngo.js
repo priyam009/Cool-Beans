@@ -7,5 +7,7 @@ router.route("/").get(userController.getAllNGO);
 
 router.route("/update/:id").put(userController.updateNGO);
 
+router.route("/delete/:id").delete(userController.deleteNGO);
+
 module.exports = router;
 

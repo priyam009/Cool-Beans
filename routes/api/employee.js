@@ -5,4 +5,6 @@ router.route("/new/:id").post(userController.createEmployee);
 
 router.route("/update/:id").put(userController.updateEmployee);
 
+router.route("/delete/:id").delete(userController.deleteEmployee);
+
 module.exports = router;
