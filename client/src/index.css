@@ -24,3 +24,8 @@ body {
   justify-content: space-around;
   align-items: center;
 }
+
+canvas {
+  padding: 10px;
+  margin-bottom: 10px;
+}

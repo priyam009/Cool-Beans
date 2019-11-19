@@ -7,6 +7,7 @@ import Navigation from "../components/Navigation";
 import { Box, ProfileBox, NGOBox, EmployeeBox } from "../components/Box";
 import { Title } from "../components/Title";
 import { Order } from "../components/Modal";
+import { Doughnut } from "react-chartjs-2";
 
 class Dashboard extends Component {
   state = {
@@ -237,17 +238,39 @@ class Dashboard extends Component {
                   ngo={this.state.ngo}
                 />
               </Box>
-              <Box location="ngo">
-                <NGOBox
-                  ngo={this.state.ngo}
-                  handleNGODelete={this.handleNGODelete}
+              <Box location="employee">
+                <EmployeeBox
+                  employee={this.state.employee}
+                  handleShow={this.handleShow}
                 />
               </Box>
             </div>
-            <Box location="employee">
-              <EmployeeBox
-                employee={this.state.employee}
-                handleShow={this.handleShow}
+            <Box location="ngo">
+              <NGOBox
+                ngo={this.state.ngo}
+                handleNGODelete={this.handleNGODelete}
+              />
+              <Doughnut
+                data={{
+                  labels: ngoName,
+                  fontColor: "black",
+                  datasets: [
+                    {
+                      label: "NGOs",
+                      backgroundColor: this.state.colors,
+                      borderWidth: 0.5,
+                      borderColor: "#121212",
+                      data: ngoTotal
+                    }
+                  ]
+                }}
+                options={{
+                  legend: {
+                    labels: {
+                      fontColor: "#121212"
+                    }
+                  }
+                }}
               />
             </Box>
           </div>
