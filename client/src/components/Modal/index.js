@@ -119,7 +119,7 @@ export function Order(props) {
           </Button>
         </div>
         <div>
-          <Button className="mt-5" size="lg" variant="danger">Delete Account</Button>
+          <Button className="mt-5" size="lg" variant="danger" onClick={() => props.handleEmployeeDelete(props.modal.employee._id)}>Delete Account</Button>
         </div>
       </Modal.Footer>
     </Modal>
