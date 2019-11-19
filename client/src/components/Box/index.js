@@ -44,14 +44,20 @@ export function NGOBox(props) {
       <div className="ngo-content-div">
         {props.ngo.map((item, i) => (
           <div className="ngo-content-info" key={i}>
-            <h5 className="ngo-box-name">{item.name}</h5>
-            <p className="ngo-box-purpose">{item.purpose}</p>
+            <div>
+              <h5 className="ngo-box-name">{item.name}</h5>
+              <p className="ngo-box-purpose">{item.purpose}</p>
+            </div>
+            <div>
+              <button onClick={() => props.handleNGODelete(item._id)} className="btn btn-dark ml-3">X</button>
+            </div>
           </div>
         ))}
       </div>
     </div>
   );
 }
+
 
 export function EmployeeBox(props) {
   return (
