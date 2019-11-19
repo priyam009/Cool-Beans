@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const googleConfig = {
   clientId: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
-  redirect: "http://localhost:3000/"
+  redirect: process.env.REDIRECT_URL || "http://localhost:3000/"
 };
 
 // Create the google auth object which gives us access to talk to google's apis
