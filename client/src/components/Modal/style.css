@@ -1,11 +1,10 @@
 .modal-wrapper {
   background-color: rgba(71, 62, 204, 0.5);
-
 }
 
 .modal-dialog {
   width: 90vw;
-  background-color: #473ecc;
+  background-color: #6b79fa;
   color: #fff;
   border-radius: 30px;
   text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
@@ -18,4 +17,202 @@
 .modal-body {
   min-width: 100%;
   margin-top: 30px;
+}
+
+.modal-ngo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+
+.modal-ngo-heading {
+  text-decoration: underline;
+  font-size: 22px;
+}
+
+.modal-ngo-name {
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.modal-ngo-name-alert {
+  margin: 0;
+  background-color: #ffdc7c;
+  color: #121212;
+  border-radius: 0 15px 15px 15px;
+}
+
+.modal-main-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.modal-main-content-menu {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+  width: 20%;
+}
+
+.modal-menu-heading {
+  text-align: center;
+  font-size: 22px;
+  text-decoration: underline;
+}
+
+.modal-menu-button-active {
+  background-color: #ffeab0;
+  transform: scale(1.1);
+  border: 0;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.modal-menu-button-active:hover {
+  background-color: #ffdc7c;
+  color: #121212;
+  transition: all .2s ease-in-out;
+  border: 0;
+}
+
+.modal-menu-button-active:focus {
+  outline: 0;
+}
+
+.modal-menu-button-inactive:focus {
+  outline: 0;
+}
+
+.modal-menu-button-inactive {
+  background-color: #ffdc7c;
+  transition: all .2s ease-in-out;
+  border: 0;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.modal-menu-button-inactive:hover {
+  background-color: #ffeab0;
+  color: #121212;
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
+  border: 0;
+}
+
+.modal-menu-button-common {
+  color: #121212;
+  margin: 10px;
+  padding: 10px 5px;
+  border-radius: 0 15px 15px 15px;
+}
+
+/* d-flex justify-content-center */
+.modal-order-heading {
+  display: flex;
+  justify-content: center;
+  font-size: 22px;
+  text-decoration: underline;
+}
+
+.modal-order-row .col{
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.modal-order-row-content {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.modal-order-remove {
+  background-color: #ffdc7c;
+  color: #121212;
+  margin-left: 10px;
+  padding: 3px 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 0 7.5px 7.5px 7.5px;
+  transition: all .2s ease-in-out;
+  border: 0;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.modal-order-remove:hover {
+  background-color: #ffeab0;
+  transform: scale(1.1);
+  border: 0;
+  color: #121212;
+}
+
+/* d-flex flex-row justify-content-between w-100 */
+.footer-content {
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer-button {
+  background-color: #ffdc7c;
+  color: #121212;
+  border-radius: 0 15px 15px 15px;
+  padding: 6px 20px;
+  border: 0;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: all .2s ease-in-out;
+  font-size: 18px;
+}
+
+.footer-button:hover {
+  background-color: #ffeab0;
+  transform: scale(1.1);
+  border: 0;
+  color: #121212;
+}
+
+.footer-alert {
+  font-size: 18px;
+  background-color: #ffdc7c;
+  color: #121212;
+  margin: 0;
+  border-radius: 0 15px 15px 15px;
+  border: 0;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.modal-account-delete {
+  background-color: #dc3446;
+  margin-top: 75px;
+  color: #fff;
+  border-radius: 0 15px 15px 15px;
+  padding: 15px 25px;
+  border: 0;
+  font-size: 18px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  transition: all .2s ease-in-out;
+}
+
+.modal-account-delete:hover {
+  background-color: #e04859;
+  transform: scale(1.1);
+  border: 0;
 }

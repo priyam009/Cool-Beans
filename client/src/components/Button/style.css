@@ -47,7 +47,27 @@
 /* NavButton function */
 .nav-button {
   cursor: pointer;
-  color: #fff;
+  background-color: #ffdc7c ;
+  border-radius: 0 10px 10px 10px;
+  color: #121212;
   font-size: 23px;
   margin: 20px 20px;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.3);
+  transition: all .2s ease-in-out;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #ffeab0 ;
+  transform: scale(1.1);
+}
+
+.logout-button {
+  margin-bottom: 30px;
 }

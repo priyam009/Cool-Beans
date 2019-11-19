@@ -19,7 +19,7 @@
   flex-direction: row;
   justify-content: space-around;
   color: #fff;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .form-details-div label {
@@ -29,23 +29,21 @@
 
 .form-details-div input {
   width: 50vw;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 10px;
+  outline: 0;
+  padding: 5px 0;
 }
 
 .form-details-div textarea {
   width: 50vw;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 10px;
   height: 30vh;
   resize: none;
+  border: none;
 }
 
 .add-margin{
   margin-top: 40px;
-  outline: 0;
-}
-
-input[type="text"]:focus {
-  border: 0;
   outline: 0;
 }
 
@@ -57,7 +55,7 @@ textarea[type="text"]:focus {
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   font-size: 15px;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 ::-moz-placeholder {
   /* Firefox 19+ */
@@ -80,14 +78,17 @@ textarea[type="text"]:focus {
 }
 
 .form-button:hover {
-  background-color: #5A54B6;
-  color: #fff;
+  background-color: #ffeab0;
+  color: #121212;
   border: 0;
+  transform: scale(1.1);
 }
 
 .form-button {
+  transition: all .2s ease-in-out;
+  background-color: #ffdc7c;
   padding: 7.5px 40px;
-  border-radius: 25px;
+  border-radius: 0 15px 15px 15px;
   font-size: 20px;
 }
 
@@ -96,21 +97,27 @@ textarea[type="text"]:focus {
 }
 
 .unselect-button {
-  border-radius: 25px;
+  font-weight: bold;
+  border-radius: 0 10px 10px 10px;
   border: 0;
   margin: 5px;
   font-size: 15px;
-  padding: 7.5px;
+  padding: 10px;
+  background-color: #ffdc7c;
+  transition: all .2s ease-in-out;
 }
 
 .select-button {
-  background-color: #5951d1;
+  font-weight: bold;
+  background-color: #ffeab0;
+  transform: scale(1.1);
+  transition: all .2s ease-in-out;
   border: 0;
-  color: #fff;
-  border-radius: 25px;
+  color: #121212;
+  border-radius: 0 10px 10px 10px;
   margin: 5px;
   font-size: 15px;
-  padding: 7.5px;
+  padding: 10px;
 }
 
 .ngo-selection {

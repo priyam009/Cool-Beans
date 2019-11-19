@@ -19,16 +19,28 @@
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   padding: 12.5px 75px;
-  border-radius: 30px;
+  border-radius: 0 15px 15px 15px;
   cursor: pointer;
 }
 
 .active-gradient {
-  color: #fff;
-  background-color: #473ecc;
+  color: #121212;
+  background-color: #ffdc7c;
+  transition: all .2s ease-in-out;
+}
+
+.active-gradient:hover {
+  background-color: #ffeab0;
+  transform: scale(1.1);
 }
 
 .inactive-gradient {
-  background-color: #5951d1;
+  background-color: #6b79fa;
   color: #fff;
+  transition: all .2s ease-in-out;
+}
+
+.inactive-gradient:hover {
+  background-color: #8994fb;
+  transform: scale(1.1);
 }
