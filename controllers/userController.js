@@ -71,5 +71,17 @@ module.exports = {
     db.Ngo.findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+
+  deleteEmployee: function(req, res) {
+    db.Employee.remove({ _id: req.params.id })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
+  deleteNGO: function(req, res) {
+    db.Ngo.remove({ _id: req.params.id })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
   }
 };
