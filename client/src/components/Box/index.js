@@ -26,7 +26,7 @@ export function ProfileBox(props) {
           src={props.userPicture}
           alt={props.userName}
         />
-        <h4>@{props.userName}</h4>
+        <h5>@{props.userName}</h5>
       </div>
       <div className="profile-extras">
         <p>{props.userEmail}</p>
@@ -38,6 +38,7 @@ export function ProfileBox(props) {
 }
 
 export function NGOBox(props) {
+  console.log("ngo props", props)
   return (
     <div className="ngo-content">
       <h2 className="box-heading">NGO</h2>
