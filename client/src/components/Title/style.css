@@ -5,3 +5,30 @@
   text-align: center;
   text-decoration: underline;
 }
+
+.add-content-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 20px;
+  width: 75%;
+}
+
+.add-content-button div {
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  padding: 12.5px 75px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.active-gradient {
+  color: #fff;
+  background-color: #473ecc;
+}
+
+.inactive-gradient {
+  background-color: #5951d1;
+  color: #fff;
+}

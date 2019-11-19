@@ -199,7 +199,7 @@ class Dashboard extends Component {
 
   updateNgo = dbNGO => {
     dbNGO.map((item, i) => {
-      console.log("item.total", item.total)
+      console.log("item.total", item.total);
       API.updateNGO(item.total, item.id)
         .then(res => this.getUser(this.state.id))
         .catch(err => console.log(err));
