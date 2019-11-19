@@ -9,5 +9,7 @@ router.route("/update/:id").put(userController.updateNGO);
 
 router.route("/delete/:id").delete(userController.deleteNGO);
 
+router.route("/color/:num").get(userController.getColors);
+
 module.exports = router;
 
