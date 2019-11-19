@@ -45,7 +45,8 @@ class Dashboard extends Component {
       }
     ],
     total: 0,
-    ngoContri: 0
+    ngoContri: 0,
+    colors: []
   };
 
   componentDidMount() {
@@ -64,11 +65,22 @@ class Dashboard extends Component {
             ngo: res.data.ngo,
             employee: res.data.employee
           });
+          this.getColors();
         })
         .catch(err => console.log(err));
     } else {
       this.props.history.push("/");
     }
+  };
+
+  getColors = () => {
+    API.getColors(this.state.ngo.length)
+      .then(res =>
+        this.setState({
+          colors: res.data.color
+        })
+      )
+      .catch(err => console.log(err));
   };
 
   //Handle Modal Close
@@ -222,6 +234,13 @@ class Dashboard extends Component {
   };
 
   render() {
+    console.log("state", this.state.colors);
+    const ngoName = [];
+    const ngoTotal = [];
+    this.state.ngo.map(item => {
+      ngoName.push(item.name);
+      ngoTotal.push(item.total);
+    });
     return (
       <Background page="dashboard">
         <Navigation props={this.props} />
