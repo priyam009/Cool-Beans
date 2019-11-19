@@ -29,6 +29,7 @@
     "googleapis": "^44.0.0",
     "if-env": "^1.0.4",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.8"
+    "mongoose": "^5.7.8",
+    "random-color": "^1.0.1"
   }
 }
