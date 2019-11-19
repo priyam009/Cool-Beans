@@ -206,6 +206,20 @@ class Dashboard extends Component {
     });
   };
 
+  handleEmployeeDelete = id => {
+    API.deleteEmployee(id)
+      .then(res => this.getUser(this.state.id))
+      .catch(err => console.log(err));
+
+    this.handleClose();
+  };
+
+  handleNGODelete = id => {
+    API.deleteNGO(id)
+      .then(res => this.getUser(this.state.id))
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
       <Background page="dashboard">
