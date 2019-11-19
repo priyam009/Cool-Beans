@@ -1,10 +1,11 @@
 import React from "react";
 import { Modal, Button, Alert, Container, Row, Col } from "react-bootstrap";
+import "./style.css";
 
 export function Order(props) {
   return (
     <Modal
-      className="bg-dark text-light"
+      className="modal-wrapper"
       show={props.show}
       onHide={props.handleClose}
       size="lg"
@@ -13,21 +14,35 @@ export function Order(props) {
       backdrop="static"
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter" className="d-flex flex-row align-items-end">
+        <Modal.Title
+          id="contained-modal-title-vcenter"
+          className="d-flex flex-row align-items-end"
+        >
           <div>{props.modal.employee.name}</div>
           <div>-</div>
           <div>{props.modal.employee.title}</div>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className="w-100 mt-3">
-        <div className="d-flex flex-column align-items-center">
-          <Alert variant="dark" size="sm">NGOs Supporting:</Alert>
+      <Modal.Body className="">
+        {/* <div className="d-flex flex-column align-items-center"> */}
+        <Alert variant="dark" size="sm">
+          NGOs Supporting:
           <div className="d-flex flex-row justify-content-between w-100">
             {props.modal.ngo.map((each, index) => {
-              return <Alert key={index} variant="success" size="sm" className="m-2 text-center">{each.name}</Alert>
+              return (
+                <Alert
+                  key={index}
+                  variant="success"
+                  size="sm"
+                  className="m-2 text-center"
+                >
+                  {each.name}
+                </Alert>
+              );
             })}
           </div>
-        </div>
+        </Alert>
+        {/* </div> */}
         <div className="d-flex flex-row justify-content-around mt-4">
           <div className="d-flex flex-column w-25 mr-2">
             <h5 className="d-flex justify-content-center">Coffee Menu</h5>
@@ -84,18 +99,16 @@ export function Order(props) {
         </div>
       </Modal.Body>
       <Modal.Footer className="d-flex flex-column w-100">
-        <div className="d-flex flex-row w-100 justify-content-between m-0">
-          <Alert className="m-0" variant="dark" size="sm">
-            Total: ${props.total}
-          </Alert>
-          <Alert className="m-0" variant="dark" size="sm">
-            Ngo Contribution: ${props.ngoContri}
-          </Alert>
-        </div>
-        <div className="d-flex flex-row w-100 justify-content-between m-0 pt-4">
+        <div className="d-flex flex-row justify-content-between w-100">
           <Button size="lg" onClick={props.handleClose}>
             Close
           </Button>
+          <Alert className="m-0" variant="dark" size="sm">
+            Ngo Contribution: ${props.ngoContri}
+          </Alert>
+          <Alert className="m-0" variant="dark" size="sm">
+            Total: ${props.total}
+          </Alert>
           <Button
             size="lg"
             onClick={() =>
@@ -104,6 +117,9 @@ export function Order(props) {
           >
             Order
           </Button>
+        </div>
+        <div>
+          <Button className="mt-5" size="lg" variant="danger">Delete Account</Button>
         </div>
       </Modal.Footer>
     </Modal>
