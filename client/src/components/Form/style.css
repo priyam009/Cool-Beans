@@ -1,0 +1,118 @@
+.add-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.form-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 25px;
+}
+
+.form-details-div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  color: #fff;
+  font-size: 18px;
+}
+
+.form-details-div label {
+  width: 25vw;
+  margin: 0;
+}
+
+.form-details-div input {
+  width: 50vw;
+  border-radius: 10px;
+}
+
+.form-details-div textarea {
+  width: 50vw;
+  border-radius: 10px;
+  height: 30vh;
+  resize: none;
+}
+
+.add-margin{
+  margin-top: 40px;
+  outline: 0;
+}
+
+input[type="text"]:focus {
+  border: 0;
+  outline: 0;
+}
+
+textarea[type="text"]:focus {
+  border: 0;
+  outline: 0;
+}
+
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 15px;
+  padding-left: 20px;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 15px;
+  padding-left: 20px;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-size: 15px;
+  padding-left: 20px;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 15px;
+  padding-left: 20px;
+}
+
+.form-button:focus {
+  outline: 0;
+}
+
+.form-button:hover {
+  background-color: #5A54B6;
+  color: #fff;
+  border: 0;
+}
+
+.form-button {
+  padding: 7.5px 40px;
+  border-radius: 25px;
+  font-size: 20px;
+}
+
+.update {
+  color: #fff;
+}
+
+.unselect-button {
+  border-radius: 25px;
+  border: 0;
+  margin: 5px;
+  font-size: 15px;
+  padding: 7.5px;
+}
+
+.select-button {
+  background-color: #5951d1;
+  border: 0;
+  color: #fff;
+  border-radius: 25px;
+  margin: 5px;
+  font-size: 15px;
+  padding: 7.5px;
+}
+
+.ngo-selection {
+  width: 50vw;
+}
