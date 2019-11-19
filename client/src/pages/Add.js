@@ -3,7 +3,7 @@ import API from "../utils/API";
 import Cookies from "js-cookie";
 import { Background } from "../components/Basics";
 import Navigation from "../components/Navigation";
-import { Title } from "../components/Title";
+import { Title, CurrentTitle } from "../components/Title";
 import { Box } from "../components/Box";
 import { Form, EmployeeForm, NGOForm } from "../components/Form";
 import "../index.css";
@@ -185,30 +185,12 @@ class Add extends Component {
       <Background page="dashboard">
         <Navigation props={this.props} />
         <div className="add-content">
-          <Title title="Add New" />
+          <Title title="Add" />
           <div className="add-content-wrapper">
-            <div className="add-content-button">
-              <div
-                className={
-                  this.state.active === "employee"
-                    ? "active-gradient"
-                    : "inactive-gradient"
-                }
-                onClick={() => this.handleActiveState("employee")}
-              >
-                ADD EMPLOYEE
-              </div>
-              <div
-                className={
-                  this.state.active === "ngo"
-                    ? "active-gradient"
-                    : "inactive-gradient"
-                }
-                onClick={() => this.handleActiveState("ngo")}
-              >
-                ADD NGO
-              </div>
-            </div>
+            <CurrentTitle
+              active={this.state.active}
+              handleActiveState={this.handleActiveState}
+            />
             <Box location="add">
               <Form>
                 {this.state.active === "ngo" ? (
