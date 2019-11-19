@@ -31,5 +31,13 @@ export default {
 
   updateNGO: function(ngo, id) {
     return axios.put("/api/ngo/update/" + id, {total: ngo})
+  },
+
+  deleteEmployee: function(id) {
+    return axios.delete("/api/employee/delete/" + id);
+  },
+
+  deleteNGO: function(id) {
+    return axios.delete("/api/ngo/delete/" + id);
   }
 };
