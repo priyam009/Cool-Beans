@@ -39,5 +39,9 @@ export default {
 
   deleteNGO: function(id) {
     return axios.delete("/api/ngo/delete/" + id);
+  },
+
+  getColors: function(num) {
+    return axios.get("/api/ngo/color/" + num);
   }
 };
