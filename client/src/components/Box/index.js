@@ -50,7 +50,7 @@ export function NGOBox(props) {
               <p className="ngo-box-purpose">{item.purpose}</p>
             </div>
             <div>
-              <button onClick={() => props.handleNGODelete(item._id)} className="btn btn-dark ml-3">X</button>
+              <button onClick={() => props.handleNGODelete(item._id)} className="ngo-box-delete">X</button>
             </div>
           </div>
         ))}

@@ -3,6 +3,7 @@ import { Modal, Button, Alert, Container, Row, Col } from "react-bootstrap";
 import "./style.css";
 
 export function Order(props) {
+  console.log("props", props);
   return (
     <Modal
       className="modal-wrapper"
@@ -23,34 +24,32 @@ export function Order(props) {
           <div>{props.modal.employee.title}</div>
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body className="">
-        {/* <div className="d-flex flex-column align-items-center"> */}
-        <Alert variant="dark" size="sm">
-          NGOs Supporting:
-          <div className="d-flex flex-row justify-content-between w-100">
+      <Modal.Body>
+        <Alert className="modal-ngo" size="sm">
+          <div className="modal-ngo-heading">NGOs Supporting:</div>
+          <div className="modal-ngo-name">
             {props.modal.ngo.map((each, index) => {
               return (
-                <Alert
-                  key={index}
-                  variant="success"
-                  size="sm"
-                  className="m-2 text-center"
-                >
+                <Alert key={index} size="sm" className="modal-ngo-name-alert">
                   {each.name}
                 </Alert>
               );
             })}
           </div>
         </Alert>
-        {/* </div> */}
-        <div className="d-flex flex-row justify-content-around mt-4">
-          <div className="d-flex flex-column w-25 mr-2">
-            <h5 className="d-flex justify-content-center">Coffee Menu</h5>
+
+        <div className="modal-main-content">
+          <div className="modal-main-content-menu">
+            <h5 className="modal-menu-heading ">Coffee Menu</h5>
             <div className="d-flex flex-column">
               {props.coffee.map((each, index) => {
                 return (
                   <Button
-                    className={each.qty ? "btn-success mt-2" : "mt-2"}
+                    className={
+                      each.qty
+                        ? "modal-menu-button-active modal-menu-button-common"
+                        : "modal-menu-button-inactive modal-menu-button-common"
+                    }
                     key={index}
                     name={each.name}
                     value="add"
@@ -62,10 +61,11 @@ export function Order(props) {
               })}
             </div>
           </div>
-          <div className="w-75 ml-2">
-            <h5 className="d-flex justify-content-center">Order</h5>
+
+          <div className="w-75">
+            <h5 className="modal-order-heading">Order</h5>
             <Container>
-              <Row className="text-center">
+              <Row className="text-center modal-order-row">
                 <Col>Item</Col>
                 <Col>Qty/Price</Col>
                 <Col>Total</Col>
@@ -74,7 +74,7 @@ export function Order(props) {
               {props.coffee.map((each, index) => {
                 if (each.qty) {
                   return (
-                    <Row key={index} className="text-center mt-2">
+                    <Row key={index} className="modal-order-row-content">
                       <Col>{each.name}</Col>
                       <Col>
                         {each.qty}x {each.price}
@@ -82,6 +82,7 @@ export function Order(props) {
                       <Col>{each.qty * each.price}</Col>
                       <Col>
                         <Button
+                          className="modal-order-remove"
                           name={each.name}
                           size="sm"
                           value="remove"
@@ -99,18 +100,16 @@ export function Order(props) {
         </div>
       </Modal.Body>
       <Modal.Footer className="d-flex flex-column w-100">
-        <div className="d-flex flex-row justify-content-between w-100">
-          <Button size="lg" onClick={props.handleClose}>
+        <div className="footer-content">
+          <Button className="footer-button" onClick={props.handleClose}>
             Close
           </Button>
-          <Alert className="m-0" variant="dark" size="sm">
+          <Alert className="footer-alert">
             Ngo Contribution: ${props.ngoContri}
           </Alert>
-          <Alert className="m-0" variant="dark" size="sm">
-            Total: ${props.total}
-          </Alert>
+          <Alert className="footer-alert">Total: ${props.total}</Alert>
           <Button
-            size="lg"
+            className="footer-button"
             onClick={() =>
               props.handleSubmitOrder(props.modal.employee, props.modal.ngo)
             }
@@ -119,7 +118,12 @@ export function Order(props) {
           </Button>
         </div>
         <div>
-          <Button className="mt-5" size="lg" variant="danger" onClick={() => props.handleEmployeeDelete(props.modal.employee._id)}>Delete Account</Button>
+          <Button
+            className="modal-account-delete"
+            onClick={() => props.handleEmployeeDelete(props.modal.employee._id)}
+          >
+            Delete Account
+          </Button>
         </div>
       </Modal.Footer>
     </Modal>

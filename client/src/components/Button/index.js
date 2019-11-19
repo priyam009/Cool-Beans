@@ -40,6 +40,6 @@ export function NavButton(props) {
 
 export function Logout(props) {
   return(
-    <div className="nav-button" onClick={props.handleLogOut}>{props.name}</div>
+    <div className="nav-button logout-button" onClick={props.handleLogOut}>{props.name}</div>
   )
 }
