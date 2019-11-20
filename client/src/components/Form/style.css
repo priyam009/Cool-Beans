@@ -100,7 +100,7 @@ textarea[type="text"]:focus {
   font-weight: bold;
   border-radius: 0 10px 10px 10px;
   border: 0;
-  margin: 5px;
+  margin: 5px 10px;
   font-size: 15px;
   padding: 10px;
   background-color: #ffdc7c;
@@ -115,7 +115,7 @@ textarea[type="text"]:focus {
   border: 0;
   color: #121212;
   border-radius: 0 10px 10px 10px;
-  margin: 5px;
+  margin: 5px 10px;
   font-size: 15px;
   padding: 10px;
 }
