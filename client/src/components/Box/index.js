@@ -20,7 +20,7 @@ export function Box({ children, location }) {
 export function ProfileBox(props) {
   return (
     <div className="box-heading profile-content">
-      <div>
+      <div className="d-flex flex-column align-items-center">
         <img
           className="img-fluid profile-image"
           src={props.userPicture}
