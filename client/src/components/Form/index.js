@@ -4,6 +4,7 @@ import "./style.css";
 export function Form({ children }) {
   return <form className="add-form">{children}</form>;
 }
+
 export function NGOForm(props) {
   return (
     <>
