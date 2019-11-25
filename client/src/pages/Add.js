@@ -91,30 +91,46 @@ class Add extends Component {
         this.setState({
           update: "New NGO Added!!"
         });
-        this.getAllNGO();
+        this.getUser(this.state.id);
+        // this.getAllNGO();
       })
       .catch(err => console.log(err));
   };
 
+  // getAllNGO = () => {
+  //   API.getAllNGO()
+  //     .then(res => {
+  //       // console.log(res.data)
+  //       var ngo = [];
+  //       for (var i = 0; i < res.data.length; i++) {
+  //         var value = {
+  //           id: res.data[i]._id,
+  //           name: res.data[i].name,
+  //           isChecked: false
+  //         };
+  //         ngo.push(value);
+  //       }
+  //       this.setState({
+  //         dbNGO: ngo
+  //       });
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
   //Get all NGOs- to display on Add Employee form
   getAllNGO = () => {
-    API.getAllNGO()
-      .then(res => {
-        // console.log(res.data)
-        var ngo = [];
-        for (var i = 0; i < res.data.length; i++) {
-          var value = {
-            id: res.data[i]._id,
-            name: res.data[i].name,
-            isChecked: false
-          };
-          ngo.push(value);
-        }
-        this.setState({
-          dbNGO: ngo
-        });
-      })
-      .catch(err => console.log(err));
+    var ngo = [];
+    for (var i = 0; i < this.state.user.ngo.length; i++) {
+      var value = {
+        id: this.state.user.ngo[i]._id,
+        name: this.state.user.ngo[i].name,
+        isChecked: false
+      };
+      ngo.push(value);
+    }
+    this.setState({
+      dbNGO: ngo
+    });
   };
 
   //Check if checkbox is ticked under Add Employee
