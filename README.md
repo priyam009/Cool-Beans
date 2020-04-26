@@ -8,6 +8,20 @@
 
 ![Cool Beans Wire Frame](images/cool-beans-wireframe.png)
 
+## Technologies Used
+
+* MongoDB
+* ExpressJS
+* ReactJS
+* NodeJS
+
+* JWT Token
+* Googleapis (NPM module for Google Signin)
+* Chartjs
+* React-Bootstrap
+* js-cookie
+* Axios
+
 ## Demo
 
 ![Cool Beans Demo](images/gif-cool-beans.gif)
@@ -16,8 +30,8 @@
 
 https://cool-beans-coffee.herokuapp.com/
 
-* Create a sign in using Google sign-in
-* Google will help sign-in automatically
+* Create a sign in using Google sign-in.
+* Google will help sign-in automatically.
 * Acting as an owner of the company, add the NGOs the company supports and the employees that work for your company.
 * Add orders for the employees. A share of the purchase is contributed to the NGO.
 * Interactive graphs shows contribution to each NGO.
